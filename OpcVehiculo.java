@@ -19,9 +19,38 @@ public class OpcVehiculo extends JFrame{
          case 1:
             screenRegistrar();
          break;
+         case 2:
+            screenConsultar();
+         break;
       }
    }
    public void screenRegistrar(){
+      setTitle("Registrar Vehiculo");
+      idVehiculo = new JTextField();
+      idVehiculo.setBounds(50, 60, 300, 30);
+      OVPanel.add(idVehiculo);
+      
+      placa = new JTextField();
+      placa.setBounds(50, 120, 300, 30);
+      OVPanel.add(placa);
+      
+      nombre = new JTextField();
+      nombre.setBounds(50, 180, 300, 30);
+      OVPanel.add(nombre);
+      
+      modelo = new JTextField();
+      modelo.setBounds(50, 240, 300, 30);
+      OVPanel.add(modelo);
+      
+      numeroSerie = new JTextField();
+      numeroSerie.setBounds(50, 300, 300, 30);
+      OVPanel.add(numeroSerie);
+      
+      marca = new JTextField();
+      marca.setBounds(50, 360, 300, 30);
+      OVPanel.add(marca);
+   }
+   public void screenConsultar(){
       setTitle("Registrar Vehiculo");
       idVehiculo = new JTextField();
       idVehiculo.setBounds(50, 60, 300, 30);
