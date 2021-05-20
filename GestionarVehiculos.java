@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
 public class GestionarVehiculos extends JFrame implements ActionListener{
-   OpcVehiculo opc = new OpcVehiculo();
    public JPanel gVPanel;
    public JLabel cartel, imagenVehiculo;
    public JButton volver, registrarVehiculo, consultarVehiculo, modificarVehiculo, eliminarVehiculo;
@@ -15,23 +14,26 @@ public class GestionarVehiculos extends JFrame implements ActionListener{
       screen();
    }
    public void actionPerformed(ActionEvent event){
-      if(event.getSource() == registrarVehiculo){
-         opc.opcion=1;
+      int n=0;
+      if(event.getSource() != volver){
+      
+         if(event.getSource() == registrarVehiculo){
+            n=1;
+         }
+         if(event.getSource() == consultarVehiculo){
+            n=2;
+         }
+         if(event.getSource() == modificarVehiculo){
+            n=3;
+         }
+         if(event.getSource() == eliminarVehiculo){
+            n=4;
+         }
+         OpcVehiculo opc = new OpcVehiculo(n);
          opc.setVisible(true);
          setVisible(false);
       }
-      if(event.getSource() == consultarVehiculo){
-         opc.opcion=2;
-         opc.setVisible(true);
-         setVisible(false);
-      }
-      if(event.getSource() == modificarVehiculo){
-         
-      }
-      if(event.getSource() == eliminarVehiculo){
-         
-      }
-      if(event.getSource() == volver){
+      else{
          Inicio vol = new Inicio();
          vol.setVisible(true);
          setVisible(false);
@@ -64,7 +66,7 @@ public class GestionarVehiculos extends JFrame implements ActionListener{
       gVPanel.add(consultarVehiculo);
       consultarVehiculo.addActionListener(this);
       
-      modificarVehiculo = new JButton("Consultar vehiculo");
+      modificarVehiculo = new JButton("Modificar vehiculo");
       modificarVehiculo.setBounds(50, 220, 200, 40);
       gVPanel.add(modificarVehiculo);
       modificarVehiculo.addActionListener(this);
