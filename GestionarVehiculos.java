@@ -16,11 +16,14 @@ public class GestionarVehiculos extends JFrame implements ActionListener{
    }
    public void actionPerformed(ActionEvent event){
       if(event.getSource() == registrarVehiculo){
+         opc.opcion=1;
          opc.setVisible(true);
          setVisible(false);
       }
       if(event.getSource() == consultarVehiculo){
-         
+         opc.opcion=2;
+         opc.setVisible(true);
+         setVisible(false);
       }
       if(event.getSource() == modificarVehiculo){
          
