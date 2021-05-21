@@ -111,7 +111,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(btnAceptar);
    }
    public void screenModificar(){
-      setTitle("Registrar Vehiculo");
+      setTitle("Modificar Vehiculo");
       idVehiculo = new JTextField();
       idVehiculo.setBounds(50, 60, 300, 30);
       OVPanel.add(idVehiculo);
