@@ -5,7 +5,7 @@ import java.applet.*;
 public class Inicio extends JFrame implements ActionListener{
    GestionarVehiculos GV = new GestionarVehiculos();
    public JPanel inicioPanel;
-   public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes;
+   public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes,gSalir;
    public JLabel elijaOpc, imagen;
    public Inicio(){
       this.setSize(720, 480);
@@ -31,6 +31,9 @@ public class Inicio extends JFrame implements ActionListener{
       if(event.getSource() == gAgentes){
          
       }
+      if(event.getSource() == gSalir){
+         System.exit(0);
+      }
    }//eventos de la ventana de inicio
    public void screen(){
       inicioPanel = new JPanel();
@@ -53,28 +56,33 @@ public class Inicio extends JFrame implements ActionListener{
       */
       
       gVehiculos = new JButton("Gestionar Vehiculos");
-      gVehiculos.setBounds(50, 80, 200, 40);
+      gVehiculos.setBounds(50, 70, 200, 40);
       inicioPanel.add(gVehiculos);
       gVehiculos.addActionListener(this);
       
       gMantenimientos = new JButton("Gestionar Mantenimientos");
-      gMantenimientos.setBounds(50, 150, 200,40);
+      gMantenimientos.setBounds(50, 130, 200,40);
       inicioPanel.add(gMantenimientos);
       gMantenimientos.addActionListener(this);
       
       gGastos = new JButton("Gestionar Gastos");
-      gGastos.setBounds(50, 220, 200, 40);
+      gGastos.setBounds(50, 190, 200, 40);
       inicioPanel.add(gGastos);
       gGastos.addActionListener(this);
       
       gProveedores = new JButton("Gestionar Provedores");
-      gProveedores.setBounds(50, 290, 200, 40);
+      gProveedores.setBounds(50, 250, 200, 40);
       inicioPanel.add(gProveedores);
       gProveedores.addActionListener(this);
       
       gAgentes = new JButton("Gestionar Agentes");
-      gAgentes.setBounds(50, 360, 200, 40);
+      gAgentes.setBounds(50, 310, 200, 40);
       inicioPanel.add(gAgentes);
       gAgentes.addActionListener(this);
+      
+      gSalir = new JButton("Salir");
+      gSalir.setBounds(50,370,200,40);
+      inicioPanel.add(gSalir);
+      gSalir.addActionListener(this);
    }
 }
