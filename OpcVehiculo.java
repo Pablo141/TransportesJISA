@@ -6,9 +6,10 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    public int opcion;
    public JPanel OVPanel,panelBtn;
    public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda;
-   public JButton btnIdV,btnConsultaG,btnAceptar,btnBuscar,btnGuardar;
+   public JButton btnIdV,btnConsultaG,btnAceptar,btnBuscar,btnBuscarE, btnGuardar,btnEliminar,btnCancelar;
    public String menuModelo[]={"1998","1999","2000","2012"},menuMarca[]={"Ford","Toyota","Dodge","Nissan"},menuCapacidad[]={"4","6","8","9"},menuCilindros[]={"6","8"};
    public JComboBox modelo,marca,capacidad,cilindros;
+   public JLabel texto;
    public OpcVehiculo(int opc){
       opcion=opc;
       this.setSize(720, 480);
@@ -112,7 +113,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    }
    public void screenConsultar(){
    
-      JLabel texto= new JLabel();
+      texto= new JLabel();
       setTitle("Consultar Vehiculo");
       texto.setText("Opciones de busqueda:");
       texto.setBounds(80, 5, 300, 30);
@@ -139,14 +140,13 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       busqueda.setVisible(false);
       OVPanel.add(busqueda);
       
-      btnAceptar= new JButton();
-      btnAceptar.setText("Volver");
+      btnAceptar= new JButton("Volver");
       btnAceptar.setBounds(315,360,100,30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
    public void screenModificar(){
-      setTitle("Registrar Vehiculo");
+      setTitle("Modificar Vehiculo");
       idVehiculo = new JTextField();
       idVehiculo.setBounds(50, 60, 300, 30);
       OVPanel.add(idVehiculo);
@@ -155,29 +155,41 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       placa.setBounds(50, 120, 300, 30);
       OVPanel.add(placa);  
       
-      btnAceptar= new JButton();
-      btnAceptar.setText("Volver");
+      btnAceptar= new JButton("Volver");
       btnAceptar.setBounds(315,360,100,30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
    public void screenEliminar(){
-      setTitle("Registrar Vehiculo");
-      idVehiculo = new JTextField();
-      idVehiculo.setBounds(50, 60, 300, 30);
-      OVPanel.add(idVehiculo);
+      setTitle("Eliminar Vehiculo");
+      texto= new JLabel();
+      texto.setText("Ingrese Id de Vehiculo:");
+      texto.setBounds(80, 35, 300, 30);
+      OVPanel.add(texto);
       
-      placa = new JTextField();
-      placa.setBounds(50, 120, 300, 30);
-      OVPanel.add(placa);
+      btnBuscarE= new JButton("Buscar");
+      btnBuscarE.setBounds(500,60,100,30);
+      btnBuscarE.addActionListener(this);
+      OVPanel.add(btnBuscarE);
+ 
+      busqueda = new JTextField();
+      busqueda.setBounds(90, 60, 400, 30);
+      OVPanel.add(busqueda);
       
-      nombre = new JTextField();
-      nombre.setBounds(50, 180, 300, 30);
-      OVPanel.add(nombre);
+      btnEliminar= new JButton("Eliminar");
+      btnEliminar.setBounds(280,360, 100, 30);
+      btnEliminar.addActionListener(this);
+      btnEliminar.setVisible(false);
+      OVPanel.add(btnEliminar);
       
-      btnAceptar= new JButton();
-      btnAceptar.setText("Volver");
-      btnAceptar.setBounds(315,360,100,30);
+      btnCancelar= new JButton("Cancelar");
+      btnCancelar.setBounds(390,360, 100, 30);
+      btnCancelar.addActionListener(this);
+      btnCancelar.setVisible(false);
+      OVPanel.add(btnCancelar);
+      
+      btnAceptar= new JButton("Volver");
+      btnAceptar.setBounds(590,400,100,30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
@@ -192,7 +204,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          btnIdV.setEnabled(false);
          crearTabla();
       }
-      if(e.getSource() == btnBuscar&& busqueda!= null){
+      if(e.getSource() == btnBuscar && busqueda != null){
             crearTabla();
       }
       if(e.getSource() == btnAceptar){
@@ -208,6 +220,22 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          kmLitros.setText(null);
          numeroSerie.setText(null);
       }
+      if(e.getSource() == btnBuscarE && busqueda != null){
+            btnEliminar.setVisible(true);
+            btnCancelar.setVisible(true);
+            crearTabla();
+      }
+      if(e.getSource() == btnEliminar){
+         JOptionPane.showMessageDialog(null, "Eliminando Datos");	
+         busqueda.setText(null);
+         btnEliminar.setVisible(false);
+         btnCancelar.setVisible(false);
+      } 
+      if(e.getSource() == btnCancelar){
+         busqueda.setText(null);
+         btnEliminar.setVisible(false);
+         btnCancelar.setVisible(false);
+      } 
    }
    public void crearTabla(){
       
