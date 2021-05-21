@@ -77,7 +77,7 @@ public class GestionarVehiculos extends JFrame implements ActionListener{
       eliminarVehiculo.addActionListener(this);
       
       volver = new JButton("Volver");
-      volver.setBounds(50, 360, 100, 40);
+      volver.setBounds(50, 360, 200, 40);
       gVPanel.add(volver);
       volver.addActionListener(this);
    }
