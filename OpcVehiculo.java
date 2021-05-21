@@ -5,8 +5,10 @@ import java.applet.*;
 public class OpcVehiculo extends JFrame implements ActionListener{
    public int opcion;
    public JPanel OVPanel,panelBtn;
-   public JTextField idVehiculo, placa, nombre, modelo, numeroSerie, marca,busqueda;
-   public JButton btnIdV,btnConsultaG,btnAceptar,btnBuscar;
+   public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda;
+   public JButton btnIdV,btnConsultaG,btnAceptar,btnBuscar,btnGuardar;
+   public String menuModelo[]={"1998","1999","2000","2012"},menuMarca[]={"Ford","Toyota","Dodge","Nissan"},menuCapacidad[]={"4","6","8","9"},menuCilindros[]={"6","8"};
+   public JComboBox modelo,marca,capacidad,cilindros;
    public OpcVehiculo(int opc){
       opcion=opc;
       this.setSize(720, 480);
@@ -35,33 +37,76 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    public void screenRegistrar(){
       
       setTitle("Registrar Vehiculo");
+      JLabel vehiculo= new JLabel("Id_Vehiculo");
+      vehiculo.setBounds(50,35,300,30);
       idVehiculo = new JTextField();
       idVehiculo.setBounds(50, 60, 300, 30);
       OVPanel.add(idVehiculo);
+      OVPanel.add(vehiculo);
       
+      JLabel placaT= new JLabel("Placa");
+      placaT.setBounds(50,95,300,30);
       placa = new JTextField();
       placa.setBounds(50, 120, 300, 30);
       OVPanel.add(placa);
+      OVPanel.add(placaT);
       
+      JLabel nombreT= new JLabel("Nombre");
+      nombreT.setBounds(50,155,300,30);
       nombre = new JTextField();
       nombre.setBounds(50, 180, 300, 30);
       OVPanel.add(nombre);
+      OVPanel.add(nombreT);
       
-      modelo = new JTextField();
-      modelo.setBounds(50, 240, 300, 30);
-      OVPanel.add(modelo);
+      JLabel kmT= new JLabel("Kilometros por litro");
+      kmT.setBounds(50,215,300,30);
+      kmLitros = new JTextField();
+      kmLitros.setBounds(50, 240, 300, 30);
+      OVPanel.add(kmLitros);
+      OVPanel.add(kmT);
       
+      JLabel numeroST= new JLabel("Numero de serie");
+      numeroST.setBounds(50,275,300,30);
       numeroSerie = new JTextField();
       numeroSerie.setBounds(50, 300, 300, 30);
       OVPanel.add(numeroSerie);
+      OVPanel.add(numeroST);
       
-      marca = new JTextField();
-      marca.setBounds(50, 360, 300, 30);
+      JLabel marcaT= new JLabel("Marca");
+      marcaT.setBounds(360,35,300,30);
+      marca = new JComboBox(menuMarca);
+      marca.setBounds(360, 60, 300, 30);
       OVPanel.add(marca);
+      OVPanel.add(marcaT);
       
-      btnAceptar= new JButton();
-      btnAceptar.setText("Volver");
-      btnAceptar.setBounds(315,360,100,30);
+      JLabel modeloT= new JLabel("Modelo");
+      modeloT.setBounds(360,95,300,30);
+      modelo = new JComboBox(menuModelo);
+      modelo.setBounds(360, 120, 300, 30);
+      OVPanel.add(modelo);
+      OVPanel.add(modeloT);
+      
+      JLabel cilindrosT= new JLabel("N° Cilindros");
+      cilindrosT.setBounds(360,155,300,30);
+      cilindros = new JComboBox(menuCilindros);
+      cilindros.setBounds(360, 180, 300, 30);
+      OVPanel.add(cilindrosT);
+      OVPanel.add(cilindros);
+      
+      JLabel capacidadT= new JLabel("Capacidad");
+      capacidadT.setBounds(360,215,300,30);
+      capacidad = new JComboBox(menuCapacidad);
+      capacidad.setBounds(360, 240, 300, 30);
+      OVPanel.add(capacidadT);
+      OVPanel.add(capacidad);
+      
+      btnGuardar= new JButton("Guardar");
+      btnGuardar.setBounds(315,360,100,30);
+      btnGuardar.addActionListener(this);
+      OVPanel.add(btnGuardar);
+      
+      btnAceptar= new JButton("Volver");
+      btnAceptar.setBounds(590,400,100,30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
@@ -154,6 +199,14 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          GestionarVehiculos vol = new GestionarVehiculos();
          vol.setVisible(true);
          setVisible(false);
+      }
+      if(e.getSource() ==  btnGuardar){
+         JOptionPane.showMessageDialog(null, "Se guardarán los datos");	
+         idVehiculo.setText(null);
+         placa.setText(null);
+         nombre.setText(null);
+         kmLitros.setText(null);
+         numeroSerie.setText(null);
       }
    }
    public void crearTabla(){
