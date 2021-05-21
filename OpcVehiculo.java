@@ -6,7 +6,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    public int opcion;
    public JPanel OVPanel,panelBtn;
    public JTextField idVehiculo, placa, nombre, modelo, numeroSerie, marca,busqueda;
-   public JButton btnIdV,btnPlaca,btnModelo,btnMarca,btnAceptar,btnBuscar;
+   public JButton btnIdV,btnConsultaG,btnAceptar,btnBuscar;
    public OpcVehiculo(int opc){
       opcion=opc;
       this.setSize(720, 480);
@@ -73,35 +73,25 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       texto.setBounds(80, 5, 300, 30);
       OVPanel.add(texto);
       
-      btnIdV= new JButton("Id_Vehiculo");
-      btnIdV.setBounds(80, 45,100 ,30);
+      btnIdV= new JButton("Busqueda por Id");
+      btnIdV.setBounds(130, 45,200 ,30);
       btnIdV.addActionListener(this);
       OVPanel.add(btnIdV);
-      
-      btnPlaca= new JButton("Placa");
-      btnPlaca.setBounds(230, 45, 100,30);
-      btnPlaca.addActionListener(this);
-      OVPanel.add(btnPlaca);
-      
-      btnModelo= new JButton("Modelo");
-      btnModelo.setBounds(380, 45, 100,30);
-      btnModelo.addActionListener(this);
-      OVPanel.add(btnModelo);
-      
-      btnMarca= new JButton("Marca");
-      btnMarca.setBounds(530, 45, 100,30);
-      btnMarca.addActionListener(this);
-      OVPanel.add(btnMarca);
+            
+      btnConsultaG= new JButton("Consulta General");
+      btnConsultaG.setBounds(340, 45,200 ,30);
+      btnConsultaG.addActionListener(this);
+      OVPanel.add(btnConsultaG);
       
       btnBuscar= new JButton("Buscar");
       btnBuscar.setBounds(500,100,100,30);
-      btnBuscar.setEnabled(false);
+      btnBuscar.setVisible(false);
       btnBuscar.addActionListener(this);
       OVPanel.add(btnBuscar);
  
       busqueda = new JTextField();
       busqueda.setBounds(90, 100, 400, 30);
-      busqueda.setEnabled(false);
+      busqueda.setVisible(false);
       OVPanel.add(busqueda);
       
       btnAceptar= new JButton();
@@ -111,7 +101,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(btnAceptar);
    }
    public void screenModificar(){
-      setTitle("Modificar Vehiculo");
+      setTitle("Registrar Vehiculo");
       idVehiculo = new JTextField();
       idVehiculo.setBounds(50, 60, 300, 30);
       OVPanel.add(idVehiculo);
@@ -148,40 +138,22 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    }
    public void actionPerformed(ActionEvent e){
       
-      if(e.getSource() != btnAceptar && e.getSource() != btnBuscar){
-      
-         if(e.getSource() == btnIdV){
-            btnPlaca.setEnabled(false);
-            btnModelo.setEnabled(false);
-            btnMarca.setEnabled(false);
-         }
-         if(e.getSource() == btnPlaca){
-            btnIdV.setEnabled(false);
-            btnModelo.setEnabled(false);
-            btnMarca.setEnabled(false);
-         }
-         if(e.getSource() == btnModelo){
-            btnIdV.setEnabled(false);
-            btnPlaca.setEnabled(false);
-            btnMarca.setEnabled(false);
-         }
-         if(e.getSource() == btnMarca){
-            btnIdV.setEnabled(false);
-            btnModelo.setEnabled(false);
-            btnPlaca.setEnabled(false);
-         }
-         btnBuscar.setEnabled(true);
-         busqueda.setEnabled(true);
+      if(e.getSource() == btnIdV){
+         btnBuscar.setVisible(true);
+         busqueda.setVisible(true);
+         btnConsultaG.setEnabled(false);
       }
-      else{
-         if(e.getSource() == btnBuscar){
+      if(e.getSource() == btnConsultaG){
+         btnIdV.setEnabled(false);
+         crearTabla();
+      }
+      if(e.getSource() == btnBuscar&& busqueda!= null){
             crearTabla();
-         }
-         if(e.getSource() == btnAceptar){
-            GestionarVehiculos vol = new GestionarVehiculos();
-            vol.setVisible(true);
-            setVisible(false);
-         }
+      }
+      if(e.getSource() == btnAceptar){
+         GestionarVehiculos vol = new GestionarVehiculos();
+         vol.setVisible(true);
+         setVisible(false);
       }
    }
    public void crearTabla(){
