@@ -14,6 +14,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    public JLabel texto;
    public OpcVehiculo(int opc){
       opcion=opc;
+      setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
       setTitle(null);
