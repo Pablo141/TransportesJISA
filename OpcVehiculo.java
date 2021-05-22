@@ -89,7 +89,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(modelo);
       OVPanel.add(modeloT);
       
-      JLabel cilindrosT= new JLabel("NÂ° Cilindros");
+      JLabel cilindrosT= new JLabel("NO° Cilindros");
       cilindrosT.setBounds(360, 155, 300, 30);
       cilindros = new JComboBox(menuCilindros);
       cilindros.setBounds(360, 180, 300, 30);
@@ -143,7 +143,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(busqueda);
       
       btnAceptar= new JButton("Volver");
-      btnAceptar.setBounds(315, 360, 100, 30);
+      btnAceptar.setBounds(50, 360, 100, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
@@ -165,7 +165,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(busqueda);
       
       btnAceptar= new JButton("Volver");
-      btnAceptar.setBounds(590, 400, 100, 30);
+      btnAceptar.setBounds(50, 360, 100, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
       
@@ -277,7 +277,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(btnCancelar);
       
       btnAceptar= new JButton("Volver");
-      btnAceptar.setBounds(590, 400, 100, 30);
+      btnAceptar.setBounds(50, 360, 100, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
