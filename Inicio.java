@@ -8,6 +8,7 @@ public class Inicio extends JFrame implements ActionListener{
    public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes,gSalir;
    public JLabel elijaOpc, imagen;
    public Inicio(){
+      setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
       setTitle("Inicio");
