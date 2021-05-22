@@ -7,6 +7,7 @@ public class GestionarVehiculos extends JFrame implements ActionListener{
    public JLabel cartel, imagenVehiculo;
    public JButton volver, registrarVehiculo, consultarVehiculo, modificarVehiculo, eliminarVehiculo;
    public GestionarVehiculos(){
+      setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
       setTitle("Gestionar Vehiculos");
