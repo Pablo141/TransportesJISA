@@ -18,6 +18,7 @@ public class Login extends JFrame implements ActionListener{
     public JButton loginButton;
     public String userM = "Transportes", passM = "JISA", userI, passI;
     public Login(){
+        setResizable(false);
         this.setSize(415, 315);
         setLocationRelativeTo(null);
         setTitle("Login");
