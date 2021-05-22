@@ -297,8 +297,10 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          if(existe== true){
             crearTabla();
          }
-         else
+         else{
             JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
+            busqueda.setText(null);
+         }
       }
       if(e.getSource() == btnAceptar){
          GestionarVehiculos vol = new GestionarVehiculos();
@@ -320,8 +322,10 @@ public class OpcVehiculo extends JFrame implements ActionListener{
             btnCancelar.setVisible(true);
             crearTabla();
          }
-         else
+         else{
             JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
+            busqueda.setText(null);
+         }
       }
       if(e.getSource() == btnEliminar){
          JOptionPane.showMessageDialog(null, "Eliminando Datos");	
@@ -349,8 +353,10 @@ public class OpcVehiculo extends JFrame implements ActionListener{
             modelo.setEnabled(true);
             cilindros.setEnabled(true);
          }
-         else
+         else{
             JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
+            busqueda.setText(null);
+         }
       }
    }
    public void crearTabla(){
@@ -359,9 +365,12 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    public void buscarId(){
       
       for(int x=0;x<IdVehiculo.length;x++){
-         if(busqueda.getText() == IdVehiculo[x]){
+         if(IdVehiculo[x].equals(busqueda.getText())){
             existe= true;
+            break;
          }
+         else
+            existe=false;
       }
    }
 }
