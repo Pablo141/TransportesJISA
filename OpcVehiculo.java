@@ -5,10 +5,11 @@ import java.applet.*;
 public class OpcVehiculo extends JFrame implements ActionListener{
    public int opcion;
    public boolean existe;
-   public JPanel OVPanel, panelBtn;
+   public JPanel OVPanel;
    public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda;
    public JButton btnIdV, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
    public String menuModelo[]={"1998", "1999", "2000", "2006"},menuMarca[]={"Ford", "Toyota", "Dodge", "Nissan"}, menuCapacidad[] = {"13", "15", "25", "41"}, menuCilindros[]={"6", "8"};
+   public String IdVehiculo[]={"V1","V4","V8","V9","V11"};
    public JComboBox modelo, marca, capacidad, cilindros;
    public JLabel texto;
    public OpcVehiculo(int opc){
@@ -147,7 +148,6 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(btnAceptar);
    }
    public void screenModificar(){
-      existe = false;
       setTitle("Modificar Vehiculo");
       
       texto= new JLabel();
@@ -169,76 +169,83 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
       
-      if(existe == false){
-         JLabel vehiculo= new JLabel("Id_Vehiculo");
-         vehiculo.setBounds(50, 95, 300, 30);
-         idVehiculo = new JTextField();
-         idVehiculo.setBounds(50, 120, 300, 30);
-         OVPanel.add(idVehiculo);
-         OVPanel.add(vehiculo);
+      JLabel vehiculo= new JLabel("Id_Vehiculo");
+      vehiculo.setBounds(50, 95, 300, 30);
+      idVehiculo = new JTextField();
+      idVehiculo.setBounds(50, 120, 300, 30);
+      idVehiculo.setEnabled(false);
+      OVPanel.add(idVehiculo);
+      OVPanel.add(vehiculo);
          
-         JLabel placaT= new JLabel("Placa");
-         placaT.setBounds(50, 155, 300, 30);
-         placa = new JTextField();
-         placa.setBounds(50, 180, 300, 30);
-         OVPanel.add(placa);
-         OVPanel.add(placaT);
+      JLabel placaT= new JLabel("Placa");
+      placaT.setBounds(50, 155, 300, 30);
+      placa = new JTextField();
+      placa.setBounds(50, 180, 300, 30);
+      placa.setEnabled(false);
+      OVPanel.add(placa);
+      OVPanel.add(placaT);
          
-         JLabel nombreT= new JLabel("Nombre");
-         nombreT.setBounds(50, 215, 300, 30);
-         nombre = new JTextField();
-         nombre.setBounds(50, 240, 300, 30);
-         OVPanel.add(nombre);
-         OVPanel.add(nombreT);
+      JLabel nombreT= new JLabel("Nombre");
+      nombreT.setBounds(50, 215, 300, 30);
+      nombre = new JTextField();
+      nombre.setBounds(50, 240, 300, 30);
+      nombre.setEnabled(false);
+      OVPanel.add(nombre);
+      OVPanel.add(nombreT);
          
-         JLabel kmT= new JLabel("Kilometros por litro");
-         kmT.setBounds(50, 275, 300, 30);
-         kmLitros = new JTextField();
-         kmLitros.setBounds(50, 300, 300, 30);
-         OVPanel.add(kmLitros);
-         OVPanel.add(kmT);
+      JLabel kmT= new JLabel("Kilometros por litro");
+      kmT.setBounds(50, 275, 300, 30);
+      kmLitros = new JTextField();
+      kmLitros.setBounds(50, 300, 300, 30);
+      kmLitros.setEnabled(false);
+      OVPanel.add(kmLitros);
+      OVPanel.add(kmT);
          
-         JLabel numeroST= new JLabel("Numero de serie");
-         numeroST.setBounds(50, 335, 300, 30);
-         numeroSerie = new JTextField();
-         numeroSerie.setBounds(50, 360, 300, 30);
-         OVPanel.add(numeroSerie);
-         OVPanel.add(numeroST);
+      JLabel numeroST= new JLabel("Numero de serie");
+      numeroST.setBounds(50, 335, 300, 30);
+      numeroSerie = new JTextField();
+      numeroSerie.setBounds(50, 360, 300, 30);
+      numeroSerie.setEnabled(false);
+      OVPanel.add(numeroSerie);
+      OVPanel.add(numeroST);
          
-         JLabel marcaT= new JLabel("Marca");
-         marcaT.setBounds(360, 95, 300, 30);
-         marca = new JComboBox(menuMarca);
-         marca.setBounds(360, 120, 300, 30);
-         OVPanel.add(marca);
-         OVPanel.add(marcaT);
+      JLabel marcaT= new JLabel("Marca");
+      marcaT.setBounds(360, 95, 300, 30);
+      marca = new JComboBox(menuMarca);
+      marca.setBounds(360, 120, 300, 30);
+      marca.setEnabled(false);
+      OVPanel.add(marca);
+      OVPanel.add(marcaT);
          
-         JLabel modeloT= new JLabel("Modelo");
-         modeloT.setBounds(360, 155, 300, 30);
-         modelo = new JComboBox(menuModelo);
-         modelo.setBounds(360, 180, 300, 30);
-         OVPanel.add(modelo);
-         OVPanel.add(modeloT);
+      JLabel modeloT= new JLabel("Modelo");
+      modeloT.setBounds(360, 155, 300, 30);
+      modelo = new JComboBox(menuModelo);
+      modelo.setBounds(360, 180, 300, 30);
+      modelo.setEnabled(false);
+      OVPanel.add(modelo);
+      OVPanel.add(modeloT);
          
-         JLabel cilindrosT= new JLabel("NÂ° Cilindros");
-         cilindrosT.setBounds(360, 215, 300, 30);
-         cilindros = new JComboBox(menuCilindros);
-         cilindros.setBounds(360, 240, 300, 30);
-         OVPanel.add(cilindrosT);
-         OVPanel.add(cilindros);
+      JLabel cilindrosT= new JLabel("NÂ° Cilindros");
+      cilindrosT.setBounds(360, 215, 300, 30);
+      cilindros = new JComboBox(menuCilindros);
+      cilindros.setBounds(360, 240, 300, 30);
+      cilindros.setEnabled(false);
+      OVPanel.add(cilindrosT);
+      OVPanel.add(cilindros);
          
-         JLabel capacidadT= new JLabel("Capacidad");
-         capacidadT.setBounds(360, 275, 300, 30);
-         capacidad = new JComboBox(menuCapacidad);
-         capacidad.setBounds(360, 300, 300, 30);
-         OVPanel.add(capacidadT);
-         OVPanel.add(capacidad);
-         
-         btnGuardar= new JButton("Guardar");
-         btnGuardar.setBounds(360, 360, 100, 30);
-         btnGuardar.addActionListener(this);
-         OVPanel.add(btnGuardar);
-         
-      }
+      JLabel capacidadT= new JLabel("Capacidad");
+      capacidadT.setBounds(360, 275, 300, 30);
+      capacidad = new JComboBox(menuCapacidad);
+      capacidad.setBounds(360, 300, 300, 30);
+      capacidad.setEnabled(false);
+      OVPanel.add(capacidadT);
+      OVPanel.add(capacidad);
+      
+      btnGuardar= new JButton("Guardar");
+      btnGuardar.setBounds(360, 360, 100, 30);
+      btnGuardar.addActionListener(this);
+      btnGuardar.setEnabled(false);
+      OVPanel.add(btnGuardar);
    }
    public void screenEliminar(){
       setTitle("Eliminar Vehiculo");
@@ -285,8 +292,13 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          btnIdV.setEnabled(false);
          crearTabla();
       }
-      if(e.getSource() == btnBuscar && busqueda != null){
+      if(e.getSource() == btnBuscar){
+         buscarId();
+         if(existe== true){
             crearTabla();
+         }
+         else
+            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
       }
       if(e.getSource() == btnAceptar){
          GestionarVehiculos vol = new GestionarVehiculos();
@@ -301,10 +313,15 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          kmLitros.setText(null);
          numeroSerie.setText(null);
       }
-      if(e.getSource() == btnBuscarE && busqueda != null){
+      if(e.getSource() == btnBuscarE){
+         buscarId();
+         if(existe== true){
             btnEliminar.setVisible(true);
             btnCancelar.setVisible(true);
             crearTabla();
+         }
+         else
+            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
       }
       if(e.getSource() == btnEliminar){
          JOptionPane.showMessageDialog(null, "Eliminando Datos");	
@@ -318,11 +335,33 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          btnCancelar.setVisible(false);
       }
       //Eventos de Modificar Vehiculo
-      if(e.getSource() == btnBusquedaM && busqueda != null){
-         existe = true;
+      if(e.getSource() == btnBusquedaM){
+         buscarId();
+         if(existe== true){
+            idVehiculo.setEnabled(true);
+            placa.setEnabled(true);
+            nombre.setEnabled(true);
+            kmLitros.setEnabled(true);
+            numeroSerie.setEnabled(true);
+            btnGuardar.setEnabled(true);
+            capacidad.setEnabled(true);
+            marca.setEnabled(true);
+            modelo.setEnabled(true);
+            cilindros.setEnabled(true);
+         }
+         else
+            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
       }
    }
    public void crearTabla(){
       
+   }
+   public void buscarId(){
+      
+      for(int x=0;x<IdVehiculo.length;x++){
+         if(busqueda.getText() == IdVehiculo[x]){
+            existe= true;
+         }
+      }
    }
 }
