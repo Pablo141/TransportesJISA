@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.applet.*;
 public class GestionarGastos extends JFrame implements ActionListener{
    public JPanel gGPanel;
-   public JLabel cartel, imagenVehiculo;
+   public JLabel cartel, imagenGasto;
    public JButton volver, registrarGasto, consultarGasto, modificarGasto, eliminarGasto;
    public GestionarGastos(){
       setResizable(false);
@@ -45,11 +45,11 @@ public class GestionarGastos extends JFrame implements ActionListener{
       gGPanel.setLayout(null);
       this.getContentPane().add(gGPanel);
       
-      ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenVehiculo.jpeg");
-      imagenVehiculo = new JLabel();
-      imagenVehiculo.setBounds(300, 40, 340, 340);
-      imagenVehiculo.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
-      gGPanel.add(imagenVehiculo);
+      ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenGasto.jpg");
+      imagenGasto = new JLabel();
+      imagenGasto.setBounds(300, 40, 340, 340);
+      imagenGasto.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
+      gGPanel.add(imagenGasto);
       
       cartel = new JLabel();
       cartel.setOpaque(true);
