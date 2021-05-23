@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.applet.*;
 public class Inicio extends JFrame implements ActionListener{
    GestionarVehiculos GV = new GestionarVehiculos();
+   GestionarProveedores GP = new GestionarProveedores();
    public JPanel inicioPanel;
    public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes,gSalir;
    public JLabel elijaOpc, imagen;
@@ -27,7 +28,8 @@ public class Inicio extends JFrame implements ActionListener{
          
       }
       if(event.getSource() == gProveedores){
-         
+         GP.setVisible(true);
+         setVisible(false);
       }
       if(event.getSource() == gAgentes){
          
