@@ -6,7 +6,7 @@ public class GestionarGastos extends JFrame implements ActionListener{
    public JPanel gGPanel;
    public JLabel cartel, imagenVehiculo;
    public JButton volver, registrarGasto, consultarGasto, modificarGasto, eliminarGasto;
-   public GestionarVehiculos(){
+   public GestionarGastos(){
       setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
@@ -27,7 +27,7 @@ public class GestionarGastos extends JFrame implements ActionListener{
          if(event.getSource() == modificarGasto){
             n=3;
          }
-         if(event.getSource() == eliminarVehiculo){
+         if(event.getSource() == eliminarGasto){
             n=4;
          }
          OpcGasto opc = new OpcGasto(n);
