@@ -169,43 +169,35 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       btnAceptar.setBounds(50, 360, 100, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
-      
-      JLabel vehiculo= new JLabel("Id_Vehiculo");
-      vehiculo.setBounds(50, 95, 300, 30);
-      idVehiculo = new JTextField();
-      idVehiculo.setBounds(50, 120, 300, 30);
-      idVehiculo.setEnabled(false);
-      OVPanel.add(idVehiculo);
-      OVPanel.add(vehiculo);
          
       JLabel placaT= new JLabel("Placa");
-      placaT.setBounds(50, 155, 300, 30);
+      placaT.setBounds(50, 95, 300, 30);
       placa = new JTextField();
-      placa.setBounds(50, 180, 300, 30);
+      placa.setBounds(50, 120, 300, 30);
       placa.setEnabled(false);
       OVPanel.add(placa);
       OVPanel.add(placaT);
          
       JLabel nombreT= new JLabel("Nombre");
-      nombreT.setBounds(50, 215, 300, 30);
+      nombreT.setBounds(50, 155, 300, 30);
       nombre = new JTextField();
-      nombre.setBounds(50, 240, 300, 30);
+      nombre.setBounds(50, 180, 300, 30);
       nombre.setEnabled(false);
       OVPanel.add(nombre);
       OVPanel.add(nombreT);
          
       JLabel kmT= new JLabel("Kilometros por litro");
-      kmT.setBounds(50, 275, 300, 30);
+      kmT.setBounds(50, 215, 300, 30);
       kmLitros = new JTextField();
-      kmLitros.setBounds(50, 300, 300, 30);
+      kmLitros.setBounds(50, 240, 300, 30);
       kmLitros.setEnabled(false);
       OVPanel.add(kmLitros);
       OVPanel.add(kmT);
          
       JLabel numeroST= new JLabel("Numero de serie");
-      numeroST.setBounds(50, 335, 300, 30);
+      numeroST.setBounds(50, 275, 300, 30);
       numeroSerie = new JTextField();
-      numeroSerie.setBounds(50, 360, 300, 30);
+      numeroSerie.setBounds(50, 300, 300, 30);
       numeroSerie.setEnabled(false);
       OVPanel.add(numeroSerie);
       OVPanel.add(numeroST);
