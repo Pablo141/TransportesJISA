@@ -5,6 +5,7 @@ import java.applet.*;
 public class Inicio extends JFrame implements ActionListener{
    GestionarVehiculos GV = new GestionarVehiculos();
    GestionarProveedores GP = new GestionarProveedores();
+   GestionarGastos GG = new GestionarGastos();
    public JPanel inicioPanel;
    public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes,gSalir;
    public JLabel elijaOpc, imagen;
@@ -25,7 +26,8 @@ public class Inicio extends JFrame implements ActionListener{
          
       }
       if(event.getSource() == gGastos){
-         
+         GG.setVisible(true);
+         setVisible(false);
       }
       if(event.getSource() == gProveedores){
          GP.setVisible(true);
