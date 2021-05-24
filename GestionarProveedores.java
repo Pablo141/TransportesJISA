@@ -7,6 +7,7 @@ public class GestionarProveedores extends JFrame implements ActionListener{
    public JLabel cartel, imagenProveedor;
    public JButton volver, registrarProveedor, consultarProveedor, modificarProveedor, eliminarProveedor;
    public GestionarProveedores(){
+      setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
       setTitle("Gestionar Proveedores");
@@ -29,7 +30,7 @@ public class GestionarProveedores extends JFrame implements ActionListener{
          if(event.getSource() == eliminarProveedor){
             n=4;
          }
-         OpcVehiculo opc = new OpcVehiculo(n);
+         OpcProveedores opc = new OpcProveedores(n);
          opc.setVisible(true);
          setVisible(false);
       }
