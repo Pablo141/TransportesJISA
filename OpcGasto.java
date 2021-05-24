@@ -6,11 +6,11 @@ public class OpcGasto extends JFrame implements ActionListener{
    public int opcion;
    public boolean existe;
    public JPanel OVPanel;
-   public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda;
-   public JButton btnIdV, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuModelo[]={"1998", "1999", "2000", "2006"},menuMarca[]={"Ford", "Toyota", "Dodge", "Nissan"}, menuCapacidad[] = {"13", "15", "25", "41"}, menuCilindros[]={"6", "8"};
-   public String IdVehiculo[]={"V1","V4","V8","V9","V11"};
-   public JComboBox modelo, marca, capacidad, cilindros;
+   public JTextField idGasto, fecha, gastoTotal, busqueda;
+   public JButton btnIdG, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
+   public String menuFacturado[] = {"Si", "No"}, menuProovedor[] = {"Provedor 1", "Provedor 2"}, menuTipoGasto[]={"Mantenimiento", "Reparacion"};
+   public String IdGasto[]={"V1","V4","V8","V9","V11"};
+   public JComboBox proovedor, facturado, tipoGasto, cilindros;
    public JLabel texto;
    public OpcGasto(int opc){
       opcion=opc;
@@ -40,72 +40,51 @@ public class OpcGasto extends JFrame implements ActionListener{
    }
    public void screenRegistrar(){
       
-      setTitle("Registrar Vehiculo");
-      JLabel vehiculo= new JLabel("Id_Vehiculo");
-      vehiculo.setBounds(50, 35, 300, 30);
-      idVehiculo = new JTextField();
-      idVehiculo.setBounds(50, 60, 300, 30);
-      OVPanel.add(idVehiculo);
-      OVPanel.add(vehiculo);
+      setTitle("Registrar Gasto");
+      JLabel gasto = new JLabel("Id_Gasto");
+      gasto.setBounds(50, 35, 300, 30);
+      idGasto = new JTextField();
+      idGasto.setBounds(50, 60, 300, 30);
+      OVPanel.add(idGasto);
+      OVPanel.add(gasto);
       
-      JLabel placaT= new JLabel("Placa");
-      placaT.setBounds(50, 95, 300, 30);
-      placa = new JTextField();
-      placa.setBounds(50, 120, 300, 30);
-      OVPanel.add(placa);
-      OVPanel.add(placaT);
+      JLabel fechaT= new JLabel("Fecha");
+      fechaT.setBounds(50, 95, 300, 30);
+      fecha = new JTextField();
+      fecha.setBounds(50, 120, 300, 30);
+      OVPanel.add(fecha);
+      OVPanel.add(fechaT);
       
-      JLabel nombreT= new JLabel("Nombre");
-      nombreT.setBounds(50, 155, 300, 30);
-      nombre = new JTextField();
-      nombre.setBounds(50, 180, 300, 30);
-      OVPanel.add(nombre);
-      OVPanel.add(nombreT);
+      JLabel gastoTotalT= new JLabel("Gasto total");
+      gastoTotalT.setBounds(50, 155, 300, 30);
+      gastoTotal = new JTextField();
+      gastoTotal.setBounds(50, 180, 300, 30);
+      OVPanel.add(gastoTotal);
+      OVPanel.add(gastoTotalT);
       
-      JLabel kmT= new JLabel("Kilometros por litro");
-      kmT.setBounds(50, 215, 300, 30);
-      kmLitros = new JTextField();
-      kmLitros.setBounds(50, 240, 300, 30);
-      OVPanel.add(kmLitros);
-      OVPanel.add(kmT);
+      JLabel proovedorT = new JLabel("Proovedor");
+      proovedorT.setBounds(360, 35, 300, 30);
+      proovedor = new JComboBox(menuProovedor);
+      proovedor.setBounds(360, 60, 300, 30);
+      OVPanel.add(proovedor);
+      OVPanel.add(proovedorT);
       
-      JLabel numeroST= new JLabel("Numero de serie");
-      numeroST.setBounds(50, 275, 300, 30);
-      numeroSerie = new JTextField();
-      numeroSerie.setBounds(50, 300, 300, 30);
-      OVPanel.add(numeroSerie);
-      OVPanel.add(numeroST);
+      JLabel facturadoT= new JLabel("Facturado");
+      facturadoT.setBounds(360, 95, 300, 30);
+      facturado = new JComboBox(menuFacturado);
+      facturado.setBounds(360, 120, 300, 30);
+      OVPanel.add(facturado);
+      OVPanel.add(facturadoT);
       
-      JLabel marcaT= new JLabel("Marca");
-      marcaT.setBounds(360, 35, 300, 30);
-      marca = new JComboBox(menuMarca);
-      marca.setBounds(360, 60, 300, 30);
-      OVPanel.add(marca);
-      OVPanel.add(marcaT);
-      
-      JLabel modeloT= new JLabel("Modelo");
-      modeloT.setBounds(360, 95, 300, 30);
-      modelo = new JComboBox(menuModelo);
-      modelo.setBounds(360, 120, 300, 30);
-      OVPanel.add(modelo);
-      OVPanel.add(modeloT);
-      
-      JLabel cilindrosT= new JLabel("NO° Cilindros");
-      cilindrosT.setBounds(360, 155, 300, 30);
-      cilindros = new JComboBox(menuCilindros);
-      cilindros.setBounds(360, 180, 300, 30);
-      OVPanel.add(cilindrosT);
-      OVPanel.add(cilindros);
-      
-      JLabel capacidadT= new JLabel("Capacidad");
-      capacidadT.setBounds(360, 215, 300, 30);
-      capacidad = new JComboBox(menuCapacidad);
-      capacidad.setBounds(360, 240, 300, 30);
-      OVPanel.add(capacidadT);
-      OVPanel.add(capacidad);
+      JLabel tipoGastoT= new JLabel("Tipo gasto");
+      tipoGastoT.setBounds(360, 155, 300, 30);
+      tipoGasto = new JComboBox(menuTipoGasto);
+      tipoGasto.setBounds(360, 180, 300, 30);
+      OVPanel.add(tipoGastoT);
+      OVPanel.add(tipoGasto);
       
       btnGuardar= new JButton("Guardar");
-      btnGuardar.setBounds(360, 300, 100, 30);
+      btnGuardar.setBounds(200, 360, 100, 30);
       btnGuardar.addActionListener(this);
       OVPanel.add(btnGuardar);
       
@@ -117,15 +96,15 @@ public class OpcGasto extends JFrame implements ActionListener{
    public void screenConsultar(){
    
       texto= new JLabel();
-      setTitle("Consultar Vehiculo");
+      setTitle("Consultar Gasto");
       texto.setText("Opciones de busqueda:");
       texto.setBounds(80, 5, 300, 30);
       OVPanel.add(texto);
       
-      btnIdV= new JButton("Busqueda por Id");
-      btnIdV.setBounds(130, 45, 200, 30);
-      btnIdV.addActionListener(this);
-      OVPanel.add(btnIdV);
+      btnIdG= new JButton("Busqueda por Id");
+      btnIdG.setBounds(130, 45, 200, 30);
+      btnIdG.addActionListener(this);
+      OVPanel.add(btnIdG);
             
       btnConsultaG= new JButton("Consulta General");
       btnConsultaG.setBounds(340, 45, 200, 30);
@@ -149,10 +128,10 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(btnAceptar);
    }
    public void screenModificar(){
-      setTitle("Modificar Vehiculo");
+      setTitle("Modificar Gasto");
       
       texto= new JLabel();
-      texto.setText("Ingrese Id de Vehiculo:");
+      texto.setText("Ingrese Id de Gasto:");
       texto.setBounds(90, 35, 300, 30);
       OVPanel.add(texto);
       
@@ -170,81 +149,57 @@ public class OpcGasto extends JFrame implements ActionListener{
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
          
-      JLabel placaT= new JLabel("Placa");
-      placaT.setBounds(50, 95, 300, 30);
-      placa = new JTextField();
-      placa.setBounds(50, 120, 300, 30);
-      placa.setEnabled(false);
-      OVPanel.add(placa);
-      OVPanel.add(placaT);
+      JLabel fechaT= new JLabel("Fecha");
+      fechaT.setBounds(50, 95, 300, 30);
+      fecha = new JTextField();
+      fecha.setBounds(50, 120, 300, 30);
+      fecha.setEnabled(false);
+      OVPanel.add(fecha);
+      OVPanel.add(fechaT);
          
-      JLabel nombreT= new JLabel("Nombre");
-      nombreT.setBounds(50, 155, 300, 30);
-      nombre = new JTextField();
-      nombre.setBounds(50, 180, 300, 30);
-      nombre.setEnabled(false);
-      OVPanel.add(nombre);
-      OVPanel.add(nombreT);
+      JLabel gastoTotalT= new JLabel("Gasto total");
+      gastoTotalT.setBounds(50, 155, 300, 30);
+      gastoTotal = new JTextField();
+      gastoTotal.setBounds(50, 180, 300, 30);
+      gastoTotal.setEnabled(false);
+      OVPanel.add(gastoTotal);
+      OVPanel.add(gastoTotalT);
+      
+      JLabel proovedorT= new JLabel("Proovedor");
+      proovedorT.setBounds(360, 95, 300, 30);
+      proovedor = new JComboBox(menuProovedor);
+      proovedor.setBounds(360, 120, 300, 30);
+      proovedor.setEnabled(false);
+      OVPanel.add(proovedor);
+      OVPanel.add(proovedorT);
          
-      JLabel kmT= new JLabel("Kilometros por litro");
-      kmT.setBounds(50, 215, 300, 30);
-      kmLitros = new JTextField();
-      kmLitros.setBounds(50, 240, 300, 30);
-      kmLitros.setEnabled(false);
-      OVPanel.add(kmLitros);
-      OVPanel.add(kmT);
+      JLabel facturadoT= new JLabel("Facturado");
+      facturadoT.setBounds(360, 155, 300, 30);
+      facturado = new JComboBox(menuFacturado);
+      facturado.setBounds(360, 180, 300, 30);
+      facturado.setEnabled(false);
+      OVPanel.add(facturado);
+      OVPanel.add(facturadoT);
          
-      JLabel numeroST= new JLabel("Numero de serie");
-      numeroST.setBounds(50, 275, 300, 30);
-      numeroSerie = new JTextField();
-      numeroSerie.setBounds(50, 300, 300, 30);
-      numeroSerie.setEnabled(false);
-      OVPanel.add(numeroSerie);
-      OVPanel.add(numeroST);
-         
-      JLabel marcaT= new JLabel("Marca");
-      marcaT.setBounds(360, 95, 300, 30);
-      marca = new JComboBox(menuMarca);
-      marca.setBounds(360, 120, 300, 30);
-      marca.setEnabled(false);
-      OVPanel.add(marca);
-      OVPanel.add(marcaT);
-         
-      JLabel modeloT= new JLabel("Modelo");
-      modeloT.setBounds(360, 155, 300, 30);
-      modelo = new JComboBox(menuModelo);
-      modelo.setBounds(360, 180, 300, 30);
-      modelo.setEnabled(false);
-      OVPanel.add(modelo);
-      OVPanel.add(modeloT);
-         
-      JLabel cilindrosT= new JLabel("NÂ° Cilindros");
-      cilindrosT.setBounds(360, 215, 300, 30);
-      cilindros = new JComboBox(menuCilindros);
-      cilindros.setBounds(360, 240, 300, 30);
-      cilindros.setEnabled(false);
-      OVPanel.add(cilindrosT);
-      OVPanel.add(cilindros);
-         
-      JLabel capacidadT= new JLabel("Capacidad");
-      capacidadT.setBounds(360, 275, 300, 30);
-      capacidad = new JComboBox(menuCapacidad);
-      capacidad.setBounds(360, 300, 300, 30);
-      capacidad.setEnabled(false);
-      OVPanel.add(capacidadT);
-      OVPanel.add(capacidad);
+      JLabel tipoGastoT= new JLabel("Tipo de gasto");
+      tipoGastoT.setBounds(360, 215, 300, 30);
+      tipoGasto = new JComboBox(menuTipoGasto);
+      tipoGasto.setBounds(360, 240, 300, 30);
+      tipoGasto.setEnabled(false);
+      OVPanel.add(tipoGastoT);
+      OVPanel.add(tipoGasto);
       
       btnGuardar= new JButton("Guardar");
-      btnGuardar.setBounds(360, 360, 100, 30);
+      btnGuardar.setBounds(200, 360, 100, 30);
       btnGuardar.addActionListener(this);
       btnGuardar.setEnabled(false);
       OVPanel.add(btnGuardar);
    }
    public void screenEliminar(){
-      setTitle("Eliminar Vehiculo");
+      setTitle("Eliminar Gasto");
       
       texto= new JLabel();
-      texto.setText("Ingrese Id de Vehiculo:");
+      texto.setText("Ingrese Id de Gasto:");
       texto.setBounds(90, 35, 300, 30);
       OVPanel.add(texto);
       
@@ -276,13 +231,13 @@ public class OpcGasto extends JFrame implements ActionListener{
    }
    public void actionPerformed(ActionEvent e){
       
-      if(e.getSource() == btnIdV){
+      if(e.getSource() == btnIdG){
          btnBuscar.setVisible(true);
          busqueda.setVisible(true);
          btnConsultaG.setEnabled(false);
       }
       if(e.getSource() == btnConsultaG){
-         btnIdV.setEnabled(false);
+         btnIdG.setEnabled(false);
          crearTabla();
       }
       if(e.getSource() == btnBuscar){
@@ -290,23 +245,17 @@ public class OpcGasto extends JFrame implements ActionListener{
          if(existe== true){
             crearTabla();
          }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
       }
       if(e.getSource() == btnAceptar){
-         GestionarVehiculos vol = new GestionarVehiculos();
+         GestionarGastos vol = new GestionarGastos();
          vol.setVisible(true);
          setVisible(false);
       }
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardarÃ¡n los datos");	
-         idVehiculo.setText(null);
-         placa.setText(null);
-         nombre.setText(null);
-         kmLitros.setText(null);
-         numeroSerie.setText(null);
+         JOptionPane.showMessageDialog(null, "Se guardardan los datos");	
+         idGasto.setText(null);
+         fecha.setText(null);
+         gastoTotal.setText(null);
       }
       if(e.getSource() == btnBuscarE){
          buscarId();
@@ -314,10 +263,6 @@ public class OpcGasto extends JFrame implements ActionListener{
             btnEliminar.setVisible(true);
             btnCancelar.setVisible(true);
             crearTabla();
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
          }
       }
       if(e.getSource() == btnEliminar){
@@ -335,20 +280,13 @@ public class OpcGasto extends JFrame implements ActionListener{
       if(e.getSource() == btnBusquedaM){
          buscarId();
          if(existe== true){
-            idVehiculo.setEnabled(true);
-            placa.setEnabled(true);
-            nombre.setEnabled(true);
-            kmLitros.setEnabled(true);
-            numeroSerie.setEnabled(true);
+            idGasto.setEnabled(true);
+            fecha.setEnabled(true);
+            gastoTotal.setEnabled(true);
             btnGuardar.setEnabled(true);
-            capacidad.setEnabled(true);
-            marca.setEnabled(true);
-            modelo.setEnabled(true);
-            cilindros.setEnabled(true);
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
+            proovedor.setEnabled(true);
+            facturado.setEnabled(true);
+            tipoGasto.setEnabled(true);
          }
       }
    }
@@ -357,8 +295,8 @@ public class OpcGasto extends JFrame implements ActionListener{
    }
    public void buscarId(){
       
-      for(int x=0;x<IdVehiculo.length;x++){
-         if(IdVehiculo[x].equals(busqueda.getText())){
+      for(int x=0;x<IdGasto.length;x++){
+         if(IdGasto[x].equals(busqueda.getText())){
             existe= true;
             break;
          }
