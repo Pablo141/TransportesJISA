@@ -6,11 +6,11 @@ public class OpcProveedores extends JFrame implements ActionListener{
    public int opcion;
    public boolean existe;
    public JPanel OPPanel;
-   public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda,idProveedor,tel;
+   public JTextField nombre,busqueda,idProveedor,tel;
    public JButton btnIdP, btnConsultaG, btnVolver, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuTservicio[]={""},menuModelo[]={"1998", "1999", "2000", "2006"},menuMarca[]={"Ford", "Toyota", "Dodge", "Nissan"}, menuCapacidad[] = {"13", "15", "25", "41"}, menuCilindros[]={"6", "8"};
+   public String menuTservicio[]={""};
    public String IdVehiculo[]={"V1","V4","V8","V9","V11"};
-   public JComboBox modelo, marca, capacidad, cilindros,tServicio;
+   public JComboBox tServicio;
    public JLabel texto;
    public OpcProveedores(int opc){
       opcion=opc;
@@ -239,7 +239,7 @@ public class OpcProveedores extends JFrame implements ActionListener{
          setVisible(false);
       }
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardarÃ¡n los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardarÃƒÂ¡n los datos");	
          idProveedor.setText(null);
          tel.setText(null);
          nombre.setText(null);
