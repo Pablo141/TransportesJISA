@@ -4,12 +4,10 @@ import java.awt.event.*;
 import java.applet.*;
 public class OpcVehiculo extends JFrame implements ActionListener{
    public int opcion;
-   public boolean existe;
    public JPanel OVPanel;
    public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda;
    public JButton btnIdV, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuModelo[]={"1998", "1999", "2000", "2006"},menuMarca[]={"Ford", "Toyota", "Dodge", "Nissan"}, menuCapacidad[] = {"13", "15", "25", "41"}, menuCilindros[]={"6", "8"};
-   public String IdVehiculo[]={"V1","V4","V8","V9","V11"};
+   public String menuModelo[]={"","1998", "1999", "2000", "2006"},menuMarca[]={"","Ford", "Toyota", "Dodge", "Nissan"}, menuCapacidad[] = {"","13", "15", "25", "41"}, menuCilindros[]={"","6", "8"};
    public JComboBox modelo, marca, capacidad, cilindros;
    public JLabel texto;
    public OpcVehiculo(int opc){
@@ -281,19 +279,13 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          busqueda.setVisible(true);
          btnConsultaG.setEnabled(false);
       }
+      //Eventos Consulta General Vehiculo
       if(e.getSource() == btnConsultaG){
          btnIdV.setEnabled(false);
-         crearTabla();
       }
+      //Eventos de Consultar Vehiculo por Id
       if(e.getSource() == btnBuscar){
-         buscarId();
-         if(existe== true){
-            crearTabla();
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
+         
       }
       if(e.getSource() == btnAceptar){
          GestionarVehiculos vol = new GestionarVehiculos();
@@ -308,17 +300,10 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          kmLitros.setText(null);
          numeroSerie.setText(null);
       }
+      //Eventos de Eliminar Vehiculo
       if(e.getSource() == btnBuscarE){
-         buscarId();
-         if(existe== true){
-            btnEliminar.setVisible(true);
-            btnCancelar.setVisible(true);
-            crearTabla();
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
+         btnEliminar.setVisible(true);
+         btnCancelar.setVisible(true);
       }
       if(e.getSource() == btnEliminar){
          JOptionPane.showMessageDialog(null, "Eliminando Datos");	
@@ -333,37 +318,15 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       }
       //Eventos de Modificar Vehiculo
       if(e.getSource() == btnBusquedaM){
-         buscarId();
-         if(existe== true){
-            idVehiculo.setEnabled(true);
-            placa.setEnabled(true);
-            nombre.setEnabled(true);
-            kmLitros.setEnabled(true);
-            numeroSerie.setEnabled(true);
-            btnGuardar.setEnabled(true);
-            capacidad.setEnabled(true);
-            marca.setEnabled(true);
-            modelo.setEnabled(true);
-            cilindros.setEnabled(true);
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE VEHICULO NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
-      }
-   }
-   public void crearTabla(){
-      
-   }
-   public void buscarId(){
-      
-      for(int x=0;x<IdVehiculo.length;x++){
-         if(IdVehiculo[x].equals(busqueda.getText())){
-            existe= true;
-            break;
-         }
-         else
-            existe=false;
+         placa.setEnabled(true);
+         nombre.setEnabled(true);
+         kmLitros.setEnabled(true);
+         numeroSerie.setEnabled(true);
+         btnGuardar.setEnabled(true);
+         capacidad.setEnabled(true);
+         marca.setEnabled(true);
+         modelo.setEnabled(true);
+         cilindros.setEnabled(true);
       }
    }
 }
