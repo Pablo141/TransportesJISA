@@ -88,7 +88,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(modelo);
       OVPanel.add(modeloT);
       
-      JLabel cilindrosT= new JLabel("NO° Cilindros");
+      JLabel cilindrosT= new JLabel("NOÂ° Cilindros");
       cilindrosT.setBounds(360, 155, 300, 30);
       cilindros = new JComboBox(menuCilindros);
       cilindros.setBounds(360, 180, 300, 30);
@@ -216,7 +216,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(modelo);
       OVPanel.add(modeloT);
          
-      JLabel cilindrosT= new JLabel("NÂ° Cilindros");
+      JLabel cilindrosT= new JLabel("NÃ‚Â° Cilindros");
       cilindrosT.setBounds(360, 215, 300, 30);
       cilindros = new JComboBox(menuCilindros);
       cilindros.setBounds(360, 240, 300, 30);
@@ -293,8 +293,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          setVisible(false);
       }
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardarÃ¡n los datos");	
-         idVehiculo.setText(null);
+         JOptionPane.showMessageDialog(null, "Se guardarÃƒÂ¡n los datos");	
          placa.setText(null);
          nombre.setText(null);
          kmLitros.setText(null);
