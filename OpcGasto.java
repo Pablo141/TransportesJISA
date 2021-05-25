@@ -4,13 +4,11 @@ import java.awt.event.*;
 import java.applet.*;
 public class OpcGasto extends JFrame implements ActionListener{
    public int opcion;
-   public boolean existe;
    public JPanel OVPanel;
    public JTextField idGasto, fecha, gastoTotal, busqueda;
-   public JButton btnIdG, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuFacturado[] = {"Si", "No"}, menuProovedor[] = {"Provedor 1", "Provedor 2"}, menuTipoGasto[]={"Mantenimiento", "Reparacion"};
-   public String IdGasto[]={"V1","V4","V8","V9","V11"};
-   public JComboBox proovedor, facturado, tipoGasto, cilindros;
+   public JButton btnIdG, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar,btnGuardarM, btnEliminar, btnCancelar, btnBusquedaM;
+   public String menuFacturado[] = {"","Si", "No"}, menuProovedor[] = {"","Provedor 1", "Provedor 2"}, menuTipoGasto[]={"","Mantenimiento", "Reparacion"};
+   public JComboBox proovedor, facturado, tipoGasto;
    public JLabel texto;
    public OpcGasto(int opc){
       opcion=opc;
@@ -189,11 +187,11 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(tipoGastoT);
       OVPanel.add(tipoGasto);
       
-      btnGuardar= new JButton("Guardar");
-      btnGuardar.setBounds(200, 360, 100, 30);
-      btnGuardar.addActionListener(this);
-      btnGuardar.setEnabled(false);
-      OVPanel.add(btnGuardar);
+      btnGuardarM= new JButton("Guardar");
+      btnGuardarM.setBounds(200, 360, 100, 30);
+      btnGuardarM.addActionListener(this);
+      btnGuardarM.setEnabled(false);
+      OVPanel.add(btnGuardarM);
    }
    public void screenEliminar(){
       setTitle("Eliminar Gasto");
@@ -236,34 +234,48 @@ public class OpcGasto extends JFrame implements ActionListener{
          busqueda.setVisible(true);
          btnConsultaG.setEnabled(false);
       }
+      //Evento Consulta General de Gastos
       if(e.getSource() == btnConsultaG){
          btnIdG.setEnabled(false);
-         crearTabla();
       }
+      //Evento Consulta de Gastos por Id     
       if(e.getSource() == btnBuscar){
-         buscarId();
-         if(existe== true){
-            crearTabla();
-         }
+         
       }
       if(e.getSource() == btnAceptar){
          GestionarGastos vol = new GestionarGastos();
          vol.setVisible(true);
          setVisible(false);
       }
+      //Guarda datos de registro
       if(e.getSource() ==  btnGuardar){
          JOptionPane.showMessageDialog(null, "Se guardardan los datos");	
          idGasto.setText(null);
          fecha.setText(null);
          gastoTotal.setText(null);
+         proovedor.setSelectedIndex(0);
+         facturado.setSelectedIndex(0);
+         tipoGasto.setSelectedIndex(0);
+      }
+      //Guarda datos Modificados
+      if(e.getSource() ==  btnGuardarM){
+         JOptionPane.showMessageDialog(null, "Se guardardan los datos");	
+         fecha.setText(null);
+         gastoTotal.setText(null);
+         busqueda.setText(null);
+         fecha.setEnabled(false);
+         gastoTotal.setEnabled(false);
+         btnGuardarM.setEnabled(false);
+         proovedor.setEnabled(false);
+         facturado.setEnabled(false);
+         tipoGasto.setEnabled(false);
+         proovedor.setSelectedIndex(0);
+         facturado.setSelectedIndex(0);
+         tipoGasto.setSelectedIndex(0);
       }
       if(e.getSource() == btnBuscarE){
-         buscarId();
-         if(existe== true){
-            btnEliminar.setVisible(true);
-            btnCancelar.setVisible(true);
-            crearTabla();
-         }
+         btnEliminar.setVisible(true);
+         btnCancelar.setVisible(true);
       }
       if(e.getSource() == btnEliminar){
          JOptionPane.showMessageDialog(null, "Eliminando Datos");	
@@ -278,30 +290,12 @@ public class OpcGasto extends JFrame implements ActionListener{
       }
       //Eventos de Modificar Vehiculo
       if(e.getSource() == btnBusquedaM){
-         buscarId();
-         if(existe== true){
-            idGasto.setEnabled(true);
-            fecha.setEnabled(true);
-            gastoTotal.setEnabled(true);
-            btnGuardar.setEnabled(true);
-            proovedor.setEnabled(true);
-            facturado.setEnabled(true);
-            tipoGasto.setEnabled(true);
-         }
-      }
-   }
-   public void crearTabla(){
-      
-   }
-   public void buscarId(){
-      
-      for(int x=0;x<IdGasto.length;x++){
-         if(IdGasto[x].equals(busqueda.getText())){
-            existe= true;
-            break;
-         }
-         else
-            existe=false;
+         fecha.setEnabled(true);
+         gastoTotal.setEnabled(true);
+         btnGuardarM.setEnabled(true);
+         proovedor.setEnabled(true);
+         facturado.setEnabled(true);
+         tipoGasto.setEnabled(true);
       }
    }
 }
