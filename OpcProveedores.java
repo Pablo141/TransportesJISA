@@ -6,8 +6,8 @@ public class OpcProveedores extends JFrame implements ActionListener{
    public int opcion;
    public JPanel OPPanel;
    public JTextField nombre,busqueda,idProveedor,tel;
-   public JButton btnIdP, btnConsultaG, btnVolver, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuTservicio[]={""};
+   public JButton btnIdP, btnConsultaG, btnVolver, btnBuscar, btnBuscarE, btnGuardar,btnGuardarM, btnEliminar, btnCancelar, btnBusquedaM;
+   public String menuTservicio[]={"","Electrico"};
    public JComboBox tServicio;
    public JLabel texto;
    public OpcProveedores(int opc){
@@ -164,11 +164,11 @@ public class OpcProveedores extends JFrame implements ActionListener{
       OPPanel.add(tServicioT);
       OPPanel.add(tServicio);
       
-      btnGuardar= new JButton("Guardar");
-      btnGuardar.setBounds(50, 360, 80, 30);
-      btnGuardar.addActionListener(this);
-      btnGuardar.setEnabled(false);
-      OPPanel.add(btnGuardar);
+      btnGuardarM= new JButton("Guardar");
+      btnGuardarM.setBounds(50, 360, 80, 30);
+      btnGuardarM.addActionListener(this);
+      btnGuardarM.setEnabled(false);
+      OPPanel.add(btnGuardarM);
    }
    public void screenEliminar(){
       setTitle("Eliminar Proveedor");
@@ -224,11 +224,24 @@ public class OpcProveedores extends JFrame implements ActionListener{
          vol.setVisible(true);
          setVisible(false);
       }
+      //Guardar Registro de Proveedor
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardarÃƒÂ¡n los datos");	
-         idProveedor.setText(null);
+         JOptionPane.showMessageDialog(null, "Se guardarÃƒÆ’Ã‚Â¡n los datos");	
          tel.setText(null);
          nombre.setText(null);
+         tServicio.setSelectedIndex(0);         
+      }
+      //Guardar Modificaciones de Proveedor
+      if(e.getSource() ==  btnGuardarM){
+         JOptionPane.showMessageDialog(null, "Se guardarÃƒÆ’Ã‚Â¡n los datos");	
+         tel.setText(null);
+         nombre.setText(null);
+         busqueda.setText(null);
+         tel.setEnabled(false);
+         nombre.setEnabled(false);
+         btnGuardarM.setEnabled(false);
+         tServicio.setEnabled(false);
+         tServicio.setSelectedIndex(0);
       }
       //Eventos de Eliminar Proveedor
       if(e.getSource() == btnBuscarE){
@@ -250,7 +263,7 @@ public class OpcProveedores extends JFrame implements ActionListener{
       if(e.getSource() == btnBusquedaM){
          tel.setEnabled(true);
          nombre.setEnabled(true);
-         btnGuardar.setEnabled(true);
+         btnGuardarM.setEnabled(true);
          tServicio.setEnabled(true);
       }
    }
