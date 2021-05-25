@@ -211,10 +211,11 @@ public class OpcProveedores extends JFrame implements ActionListener{
          busqueda.setVisible(true);
          btnConsultaG.setEnabled(false);
       }
+      //Eventos de Consulta General de Proveedores
       if(e.getSource() == btnConsultaG){
          btnIdP.setEnabled(false);
       }
-      //Eventos de Consultar Proveedor
+      //Eventos de Consultar Proveedor por Id 
       if(e.getSource() == btnBuscar){
          
       }
