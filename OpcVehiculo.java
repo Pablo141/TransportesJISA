@@ -6,7 +6,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
    public int opcion;
    public JPanel OVPanel;
    public JTextField idVehiculo, placa, nombre, numeroSerie, kmLitros,busqueda;
-   public JButton btnIdV, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
+   public JButton btnIdV, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar,btnGuardarM, btnEliminar, btnCancelar, btnBusquedaM;
    public String menuModelo[]={"","1998", "1999", "2000", "2006"},menuMarca[]={"","Ford", "Toyota", "Dodge", "Nissan"}, menuCapacidad[] = {"","13", "15", "25", "41"}, menuCilindros[]={"","6", "8"};
    public JComboBox modelo, marca, capacidad, cilindros;
    public JLabel texto;
@@ -232,11 +232,11 @@ public class OpcVehiculo extends JFrame implements ActionListener{
       OVPanel.add(capacidadT);
       OVPanel.add(capacidad);
       
-      btnGuardar= new JButton("Guardar");
-      btnGuardar.setBounds(360, 360, 100, 30);
-      btnGuardar.addActionListener(this);
-      btnGuardar.setEnabled(false);
-      OVPanel.add(btnGuardar);
+      btnGuardarM= new JButton("Guardar");
+      btnGuardarM.setBounds(360, 360, 100, 30);
+      btnGuardarM.addActionListener(this);
+      btnGuardarM.setEnabled(false);
+      OVPanel.add(btnGuardarM);
    }
    public void screenEliminar(){
       setTitle("Eliminar Vehiculo");
@@ -292,12 +292,40 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          vol.setVisible(true);
          setVisible(false);
       }
+      //Guarda datos de registro
       if(e.getSource() ==  btnGuardar){
+         JOptionPane.showMessageDialog(null, "Se guardarÃƒÂ¡n los datos");	
+         idVehiculo.setText(null);
+         placa.setText(null);
+         nombre.setText(null);
+         kmLitros.setText(null);
+         numeroSerie.setText(null);
+         marca.setSelectedIndex(0);
+         modelo.setSelectedIndex(0);
+         capacidad.setSelectedIndex(0);
+         cilindros.setSelectedIndex(0);
+      }
+      //Guarda datos de modificacion
+      if(e.getSource() ==  btnGuardarM){
          JOptionPane.showMessageDialog(null, "Se guardarÃƒÂ¡n los datos");	
          placa.setText(null);
          nombre.setText(null);
          kmLitros.setText(null);
          numeroSerie.setText(null);
+         busqueda.setText(null);
+         placa.setEnabled(false);
+         nombre.setEnabled(false);
+         kmLitros.setEnabled(false);
+         numeroSerie.setEnabled(false);
+         capacidad.setEnabled(false);
+         marca.setEnabled(false);
+         modelo.setEnabled(false);
+         cilindros.setEnabled(false);         
+         btnGuardarM.setEnabled(false);
+         marca.setSelectedIndex(0);
+         modelo.setSelectedIndex(0);
+         capacidad.setSelectedIndex(0);
+         cilindros.setSelectedIndex(0);
       }
       //Eventos de Eliminar Vehiculo
       if(e.getSource() == btnBuscarE){
@@ -321,7 +349,7 @@ public class OpcVehiculo extends JFrame implements ActionListener{
          nombre.setEnabled(true);
          kmLitros.setEnabled(true);
          numeroSerie.setEnabled(true);
-         btnGuardar.setEnabled(true);
+         btnGuardarM.setEnabled(true);
          capacidad.setEnabled(true);
          marca.setEnabled(true);
          modelo.setEnabled(true);
