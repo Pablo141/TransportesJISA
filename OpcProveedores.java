@@ -4,12 +4,10 @@ import java.awt.event.*;
 import java.applet.*;
 public class OpcProveedores extends JFrame implements ActionListener{
    public int opcion;
-   public boolean existe;
    public JPanel OPPanel;
    public JTextField nombre,busqueda,idProveedor,tel;
    public JButton btnIdP, btnConsultaG, btnVolver, btnBuscar, btnBuscarE, btnGuardar, btnEliminar, btnCancelar, btnBusquedaM;
    public String menuTservicio[]={""};
-   public String IdVehiculo[]={"V1","V4","V8","V9","V11"};
    public JComboBox tServicio;
    public JLabel texto;
    public OpcProveedores(int opc){
@@ -41,13 +39,7 @@ public class OpcProveedores extends JFrame implements ActionListener{
    public void screenRegistrar(){
       
       setTitle("Registrar Proveedor");
-      JLabel proveedor= new JLabel("Id_Proveedor");
-      proveedor.setBounds(50, 35, 150, 30);
-      idProveedor = new JTextField();
-      idProveedor.setBounds(50, 60, 200, 30);
-      OPPanel.add(idProveedor);
-      OPPanel.add(proveedor);
-      
+            
       ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenProveedor.jpg");
       JLabel imagenProveedor = new JLabel();
       imagenProveedor.setBounds(300, 40, 340, 340);
@@ -221,17 +213,10 @@ public class OpcProveedores extends JFrame implements ActionListener{
       }
       if(e.getSource() == btnConsultaG){
          btnIdP.setEnabled(false);
-         crearTabla();
       }
+      //Eventos de Consultar Proveedor
       if(e.getSource() == btnBuscar){
-         buscarId();
-         if(existe== true){
-            crearTabla();
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE PROVEEDOR NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
+         
       }
       if(e.getSource() == btnVolver){
          GestionarProveedores vol = new GestionarProveedores();
@@ -244,17 +229,10 @@ public class OpcProveedores extends JFrame implements ActionListener{
          tel.setText(null);
          nombre.setText(null);
       }
+      //Eventos de Eliminar Proveedor
       if(e.getSource() == btnBuscarE){
-         buscarId();
-         if(existe== true){
-            btnEliminar.setVisible(true);
-            btnCancelar.setVisible(true);
-            crearTabla();
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE PROVEEDOR NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
+         btnEliminar.setVisible(true);
+         btnCancelar.setVisible(true);
       }
       if(e.getSource() == btnEliminar){
          JOptionPane.showMessageDialog(null, "Eliminando Datos");	
@@ -267,34 +245,12 @@ public class OpcProveedores extends JFrame implements ActionListener{
          btnEliminar.setVisible(false);
          btnCancelar.setVisible(false);
       }
-      //Eventos de Modificar Vehiculo
+      //Eventos de Modificar Proveedor
       if(e.getSource() == btnBusquedaM){
-         buscarId();
-         if(existe== true){
-            idProveedor.setEnabled(true);
-            tel.setEnabled(true);
-            nombre.setEnabled(true);
-            btnGuardar.setEnabled(true);
-            tServicio.setEnabled(true);
-         }
-         else{
-            JOptionPane.showMessageDialog(null, "ESTE PROVEEDOR NO SE ENCUENTRA REGISTRADO");	
-            busqueda.setText(null);
-         }
-      }
-   }
-   public void crearTabla(){
-      
-   }
-   public void buscarId(){
-      
-      for(int x=0;x<IdVehiculo.length;x++){
-         if(IdVehiculo[x].equals(busqueda.getText())){
-            existe= true;
-            break;
-         }
-         else
-            existe=false;
+         tel.setEnabled(true);
+         nombre.setEnabled(true);
+         btnGuardar.setEnabled(true);
+         tServicio.setEnabled(true);
       }
    }
 }
