@@ -53,38 +53,31 @@ public class OpcAgentes extends JFrame implements ActionListener{
       OAPanel.add(idProveedorT);
       OAPanel.add(idProveedor);
       
-      JLabel idAgenteT= new JLabel("Id Agente");
-      idAgenteT.setBounds(50,75,150,30);
-      idAgente = new JTextField();
-      idAgente.setBounds(50, 100, 200,30);
-      OAPanel.add(idAgenteT);
-      OAPanel.add(idAgente);
-      
       JLabel nombreT= new JLabel("Nombre");
-      nombreT.setBounds(50, 125, 150, 30);
+      nombreT.setBounds(50, 75, 150, 30);
       nombre = new JTextField();
-      nombre.setBounds(50, 150, 200, 30);
+      nombre.setBounds(50, 100, 200, 30);
       OAPanel.add(nombre);
       OAPanel.add(nombreT);
       
       JLabel telT= new JLabel("Numero Telefonico");
-      telT.setBounds(50, 175, 150, 30);
+      telT.setBounds(50, 125, 150, 30);
       tel = new JTextField();
-      tel.setBounds(50, 200, 200, 30);
+      tel.setBounds(50, 150, 200, 30);
       OAPanel.add(tel);
       OAPanel.add(telT);
       
       JLabel emailT= new JLabel("Email");
-      emailT.setBounds(50, 225, 150, 30);
+      emailT.setBounds(50, 175, 150, 30);
       email = new JTextField();
-      email.setBounds(50, 250, 200, 30);
+      email.setBounds(50, 200, 200, 30);
       OAPanel.add(email);
       OAPanel.add(emailT);
             
       JLabel cargoT= new JLabel("Cargo");
-      cargoT.setBounds(50, 275, 150, 30);
+      cargoT.setBounds(50, 225, 150, 30);
       cargo = new JTextField();
-      cargo.setBounds(50, 300, 200, 30);
+      cargo.setBounds(50, 250, 200, 30);
       OAPanel.add(cargoT);
       OAPanel.add(cargo);
       
@@ -262,17 +255,16 @@ public class OpcAgentes extends JFrame implements ActionListener{
       }
       //Guardar Registro de Agentes
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardar·n los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardar√°n los datos");	
          tel.setText(null);
          nombre.setText(null);
-         idAgente.setText(null);
          cargo.setText(null);
          email.setText(null);
          idProveedor.setSelectedIndex(0);         
       }
       //Guardar Modificaciones de Agentes
       if(e.getSource() ==  btnGuardarM){
-         JOptionPane.showMessageDialog(null, "Se guardar·n los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardar√°n los datos");	
          tel.setText(null);
          nombre.setText(null);
          busqueda.setText(null);
@@ -283,6 +275,7 @@ public class OpcAgentes extends JFrame implements ActionListener{
          email.setEnabled(false);
          cargo.setEnabled(false);
          btnGuardarM.setEnabled(false);
+         idProveedor.setEnabled(false);
          idProveedor.setSelectedIndex(0);
       }
       //Eventos de Eliminar Agentes
@@ -308,6 +301,7 @@ public class OpcAgentes extends JFrame implements ActionListener{
          email.setEnabled(true);
          cargo.setEnabled(true);
          btnGuardarM.setEnabled(true);
+         idProveedor.setEnabled(true);
          idProveedor.setSelectedIndex(1);//Colocar la casilla del id de su proveedor
       }
    }
