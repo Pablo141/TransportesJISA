@@ -46,45 +46,38 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       imagenMantenimiento.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
       OMPanel.add(imagenMantenimiento);
       
-      JLabel idMantenimientoT= new JLabel("Id Mantenimiento");
-      idMantenimientoT.setBounds(50,25,150,30);
-      idMantenimiento = new JTextField();
-      idMantenimiento.setBounds(50, 50, 200,30);
-      OMPanel.add(idMantenimientoT);
-      OMPanel.add(idMantenimiento);
-      
       JLabel idProveedorT= new JLabel("Id Proveedor");
-      idProveedorT.setBounds(50,75,150,30);
+      idProveedorT.setBounds(50,25,150,30);
       idProveedor = new JComboBox(menuIdP);
-      idProveedor.setBounds(50, 100, 200,30);
+      idProveedor.setBounds(50, 50, 200,30);
       OMPanel.add(idProveedorT);
       OMPanel.add(idProveedor);
       
       JLabel idVehiculoT= new JLabel("Id Vehiculo");
-      idVehiculoT.setBounds(50, 125, 150, 30);
+      idVehiculoT.setBounds(50, 75, 150, 30);
       idVehiculo = new JComboBox(menuIdV);
-      idVehiculo.setBounds(50, 150, 200, 30);
+      idVehiculo.setBounds(50, 100, 200, 30);
       OMPanel.add(idVehiculo);
       OMPanel.add(idVehiculoT);
       
       JLabel mantenimientoT= new JLabel("Mantenimiento o Reparacion");
-      mantenimientoT.setBounds(50, 175, 200, 30);
+      mantenimientoT.setBounds(50, 125, 200, 30);
       mantenimiento = new JComboBox(menuMantenimiento);
-      mantenimiento.setBounds(50, 200, 200, 30);
+      mantenimiento.setBounds(50, 150, 200, 30);
       OMPanel.add(mantenimientoT);
       OMPanel.add(mantenimiento);
       
       JLabel costoT= new JLabel("Costo por mano de obra");
-      costoT.setBounds(50, 225, 200, 30);
+      costoT.setBounds(50, 175, 200, 30);
       costo = new JTextField();
-      costo.setBounds(50, 250, 200, 30);
+      costo.setBounds(50, 200, 200, 30);
       OMPanel.add(costo);
       OMPanel.add(costoT);
             
       JLabel fechaT= new JLabel("Fecha");
-      fechaT.setBounds(50, 275, 150, 30);
+      fechaT.setBounds(50, 225, 150, 30);
       fecha = new JTextField();
-      fecha.setBounds(50, 300, 200, 30);
+      fecha.setBounds(50, 250, 200, 30);
       OMPanel.add(fechaT);
       OMPanel.add(fecha);
       
@@ -262,17 +255,16 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       }
       //Guardar Registro de Mantenimientos
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardar·n los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardar√°n los datos");	
          costo.setText(null);
          fecha.setText(null);
-         idMantenimiento.setText(null);
          idVehiculo.setSelectedIndex(0);
          mantenimiento.setSelectedIndex(0);
          idProveedor.setSelectedIndex(0);         
       }
       //Guardar Modificaciones de Mantenimientos
       if(e.getSource() ==  btnGuardarM){
-         JOptionPane.showMessageDialog(null, "Se guardar·n los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardar√°n los datos");	
          costo.setText(null);
          fecha.setText(null);
          busqueda.setText(null);
