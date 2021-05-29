@@ -7,6 +7,7 @@ public class Inicio extends JFrame implements ActionListener{
    GestionarProveedores GP = new GestionarProveedores();
    GestionarGastos GG = new GestionarGastos();
    GestionarAgentes GA = new GestionarAgentes();
+   GestionarMantenimiento GM= new GestionarMantenimiento();
    public JPanel inicioPanel;
    public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes,gSalir;
    public JLabel elijaOpc, imagen;
@@ -24,7 +25,8 @@ public class Inicio extends JFrame implements ActionListener{
          setVisible(false);
       }
       if(event.getSource() == gMantenimientos){
-         
+         GM.setVisible(true);
+         setVisible(false);
       }
       if(event.getSource() == gGastos){
          GG.setVisible(true);
