@@ -46,7 +46,7 @@ public class OpcAgentes extends JFrame implements ActionListener{
       imagenAgente.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
       OAPanel.add(imagenAgente);
       
-      JLabel idProveedorT= new JLabel("Id Proveedor");
+      JLabel idProveedorT= new JLabel("Proveedor");
       idProveedorT.setBounds(50,25,150,30);
       idProveedor = new JComboBox(menuIdP);
       idProveedor.setBounds(50, 50, 200,30);
@@ -153,7 +153,7 @@ public class OpcAgentes extends JFrame implements ActionListener{
       btnVolver.addActionListener(this);
       OAPanel.add(btnVolver);
       
-      JLabel idProveedorT= new JLabel("Id Proveedor");
+      JLabel idProveedorT= new JLabel("Proveedor");
       idProveedorT.setBounds(50,75,150,30);
       idProveedor = new JComboBox(menuIdP);
       idProveedor.setBounds(50, 100, 200,30);
