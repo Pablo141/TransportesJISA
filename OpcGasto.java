@@ -39,55 +39,55 @@ public class OpcGasto extends JFrame implements ActionListener{
    public void screenRegistrar(){
       
       setTitle("Registrar Gasto");
-      JLabel gasto = new JLabel("Id_Gasto");
-      gasto.setBounds(50, 35, 300, 30);
-      idGasto = new JTextField();
-      idGasto.setBounds(50, 60, 300, 30);
-      OVPanel.add(idGasto);
-      OVPanel.add(gasto);
       
+      ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenGasto.jpg");
+      JLabel imagenGasto = new JLabel();
+      imagenGasto.setBounds(300, 40, 340, 340);
+      imagenGasto.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
+      OVPanel.add(imagenGasto);
+            
       JLabel fechaT= new JLabel("Fecha");
-      fechaT.setBounds(50, 95, 300, 30);
+      fechaT.setBounds(50, 35, 200, 30);
       fecha = new JTextField();
-      fecha.setBounds(50, 120, 300, 30);
+      fecha.setBounds(50, 60, 200, 30);
       OVPanel.add(fecha);
       OVPanel.add(fechaT);
       
       JLabel gastoTotalT= new JLabel("Gasto total");
-      gastoTotalT.setBounds(50, 155, 300, 30);
+      gastoTotalT.setBounds(50, 95, 200, 30);
       gastoTotal = new JTextField();
-      gastoTotal.setBounds(50, 180, 300, 30);
+      gastoTotal.setBounds(50, 120, 200, 30);
       OVPanel.add(gastoTotal);
       OVPanel.add(gastoTotalT);
       
-      JLabel proovedorT = new JLabel("Proovedor");
-      proovedorT.setBounds(360, 35, 300, 30);
+      JLabel proovedorT = new JLabel("Proveedor");
+      proovedorT.setBounds(50, 155, 200, 30);
       proovedor = new JComboBox(menuProovedor);
-      proovedor.setBounds(360, 60, 300, 30);
+      proovedor.setBounds(50, 180, 200, 30);
       OVPanel.add(proovedor);
       OVPanel.add(proovedorT);
       
       JLabel facturadoT= new JLabel("Facturado");
-      facturadoT.setBounds(360, 95, 300, 30);
+      facturadoT.setBounds(50, 215, 200, 30);
       facturado = new JComboBox(menuFacturado);
-      facturado.setBounds(360, 120, 300, 30);
+      facturado.setBounds(50, 240, 200, 30);
       OVPanel.add(facturado);
       OVPanel.add(facturadoT);
       
       JLabel tipoGastoT= new JLabel("Tipo gasto");
-      tipoGastoT.setBounds(360, 155, 300, 30);
+      tipoGastoT.setBounds(50, 275, 200, 30);
       tipoGasto = new JComboBox(menuTipoGasto);
-      tipoGasto.setBounds(360, 180, 300, 30);
+      tipoGasto.setBounds(50, 300, 200, 30);
       OVPanel.add(tipoGastoT);
       OVPanel.add(tipoGasto);
       
       btnGuardar= new JButton("Guardar");
-      btnGuardar.setBounds(200, 360, 100, 30);
+      btnGuardar.setBounds(50, 360, 80, 30);
       btnGuardar.addActionListener(this);
       OVPanel.add(btnGuardar);
       
       btnAceptar= new JButton("Volver");
-      btnAceptar.setBounds(50, 360, 100, 30);
+      btnAceptar.setBounds(150, 360, 80, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
@@ -130,65 +130,71 @@ public class OpcGasto extends JFrame implements ActionListener{
       
       texto= new JLabel();
       texto.setText("Ingrese Id de Gasto:");
-      texto.setBounds(90, 35, 300, 30);
+      texto.setBounds(90, 15, 300, 30);
       OVPanel.add(texto);
       
       btnBusquedaM= new JButton("Buscar");
-      btnBusquedaM.setBounds(500, 60, 100, 30);
+      btnBusquedaM.setBounds(500, 40, 100, 30);
       btnBusquedaM.addActionListener(this);
       OVPanel.add(btnBusquedaM);
       
       busqueda = new JTextField();
-      busqueda.setBounds(90, 60, 400, 30);
+      busqueda.setBounds(90, 40, 400, 30);
       OVPanel.add(busqueda);
       
+      ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenGasto.jpg");
+      JLabel imagenGasto = new JLabel();
+      imagenGasto.setBounds(300, 115, 310, 280);
+      imagenGasto.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
+      OVPanel.add(imagenGasto);
+      
       btnAceptar= new JButton("Volver");
-      btnAceptar.setBounds(50, 360, 100, 30);
+      btnAceptar.setBounds(150, 360, 80, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
          
       JLabel fechaT= new JLabel("Fecha");
-      fechaT.setBounds(50, 95, 300, 30);
+      fechaT.setBounds(50, 75, 150, 30);
       fecha = new JTextField();
-      fecha.setBounds(50, 120, 300, 30);
+      fecha.setBounds(50, 100, 200, 30);
       fecha.setEnabled(false);
       OVPanel.add(fecha);
       OVPanel.add(fechaT);
          
       JLabel gastoTotalT= new JLabel("Gasto total");
-      gastoTotalT.setBounds(50, 155, 300, 30);
+      gastoTotalT.setBounds(50, 125, 150, 30);
       gastoTotal = new JTextField();
-      gastoTotal.setBounds(50, 180, 300, 30);
+      gastoTotal.setBounds(50, 150, 200, 30);
       gastoTotal.setEnabled(false);
       OVPanel.add(gastoTotal);
       OVPanel.add(gastoTotalT);
       
       JLabel proovedorT= new JLabel("Proovedor");
-      proovedorT.setBounds(360, 95, 300, 30);
+      proovedorT.setBounds(50, 175, 150, 30);
       proovedor = new JComboBox(menuProovedor);
-      proovedor.setBounds(360, 120, 300, 30);
+      proovedor.setBounds(50, 200, 200, 30);
       proovedor.setEnabled(false);
       OVPanel.add(proovedor);
       OVPanel.add(proovedorT);
          
       JLabel facturadoT= new JLabel("Facturado");
-      facturadoT.setBounds(360, 155, 300, 30);
+      facturadoT.setBounds(50, 225, 150, 30);
       facturado = new JComboBox(menuFacturado);
-      facturado.setBounds(360, 180, 300, 30);
+      facturado.setBounds(50, 250, 200, 30);
       facturado.setEnabled(false);
       OVPanel.add(facturado);
       OVPanel.add(facturadoT);
          
       JLabel tipoGastoT= new JLabel("Tipo de gasto");
-      tipoGastoT.setBounds(360, 215, 300, 30);
+      tipoGastoT.setBounds(50, 275, 150, 30);
       tipoGasto = new JComboBox(menuTipoGasto);
-      tipoGasto.setBounds(360, 240, 300, 30);
+      tipoGasto.setBounds(50, 300,200, 30);
       tipoGasto.setEnabled(false);
       OVPanel.add(tipoGastoT);
       OVPanel.add(tipoGasto);
       
       btnGuardarM= new JButton("Guardar");
-      btnGuardarM.setBounds(200, 360, 100, 30);
+      btnGuardarM.setBounds(50, 360, 80, 30);
       btnGuardarM.addActionListener(this);
       btnGuardarM.setEnabled(false);
       OVPanel.add(btnGuardarM);
@@ -250,7 +256,6 @@ public class OpcGasto extends JFrame implements ActionListener{
       //Guarda datos de registro
       if(e.getSource() ==  btnGuardar){
          JOptionPane.showMessageDialog(null, "Se guardardan los datos");	
-         idGasto.setText(null);
          fecha.setText(null);
          gastoTotal.setText(null);
          proovedor.setSelectedIndex(0);
