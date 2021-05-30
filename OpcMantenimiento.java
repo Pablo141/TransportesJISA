@@ -6,6 +6,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
    public int opcion;
    public JPanel OMPanel;
    public JTextField busqueda,fecha,costo, idMantenimiento;
+   public JTextArea reporte;
    public JButton btnIdM, btnConsultaG, btnVolver, btnBuscar, btnBuscarE, btnGuardar,btnGuardarM, btnEliminar, btnCancelar, btnBusquedaM;
    public String menuIdP[]={"","P1"},menuIdV[]={"","ihdcihd"},menuMantenimiento[]={"","Mecanico","Electrico","Limpieza"};
    public JComboBox idProveedor,idVehiculo,mantenimiento;
@@ -40,20 +41,21 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       
       setTitle("Registrar Mantenimiento");
             
-      ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenMantenimiento.jpg");
-      JLabel imagenMantenimiento = new JLabel();
-      imagenMantenimiento.setBounds(300, 40, 340, 340);
-      imagenMantenimiento.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
-      OMPanel.add(imagenMantenimiento);
+      JLabel reporteT = new JLabel("Reporte");
+      reporteT .setBounds(300,25,150,30);
+      reporte = new JTextArea();
+      reporte.setBounds(300, 50, 340, 320);
+      OMPanel.add(reporte);
+      OMPanel.add(reporteT);
       
-      JLabel idProveedorT= new JLabel("Id Proveedor");
+      JLabel idProveedorT= new JLabel("Proveedor");
       idProveedorT.setBounds(50,25,150,30);
       idProveedor = new JComboBox(menuIdP);
       idProveedor.setBounds(50, 50, 200,30);
       OMPanel.add(idProveedorT);
       OMPanel.add(idProveedor);
       
-      JLabel idVehiculoT= new JLabel("Id Vehiculo");
+      JLabel idVehiculoT= new JLabel("Vehiculo");
       idVehiculoT.setBounds(50, 75, 150, 30);
       idVehiculo = new JComboBox(menuIdV);
       idVehiculo.setBounds(50, 100, 200, 30);
@@ -141,19 +143,13 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       busqueda = new JTextField();
       busqueda.setBounds(90, 40, 400, 30);
       OMPanel.add(busqueda);
-      
-      ImageIcon imagenF = new ImageIcon("./Recursos/Imagenes/ImagenMantenimiento.jpg");
-      JLabel imagenMantenimiento = new JLabel();
-      imagenMantenimiento.setBounds(300, 115, 310, 280);
-      imagenMantenimiento.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
-      OMPanel.add(imagenMantenimiento);
-      
+            
       btnVolver= new JButton("Volver");
       btnVolver.setBounds(150, 360, 80, 30);
       btnVolver.addActionListener(this);
       OMPanel.add(btnVolver);
       
-      JLabel idProveedorT= new JLabel("Id Proveedor");
+      JLabel idProveedorT= new JLabel("Proveedor");
       idProveedorT.setBounds(50,75,150,30);
       idProveedor = new JComboBox(menuIdP);
       idProveedor.setBounds(50, 100, 200,30);
@@ -161,7 +157,15 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(idProveedorT);
       OMPanel.add(idProveedor);
    
-      JLabel idVehiculoT= new JLabel("Id Vehiculo");
+      JLabel reporteT = new JLabel("Reporte");
+      reporteT .setBounds(300,75,150,30);
+      reporte = new JTextArea();
+      reporte.setBounds(300, 100, 340, 320);
+      reporte.setEnabled(false);
+      OMPanel.add(reporte);
+      OMPanel.add(reporteT);
+      
+      JLabel idVehiculoT= new JLabel("Vehiculo");
       idVehiculoT.setBounds(50, 125, 150, 30);
       idVehiculo = new JComboBox(menuIdV);
       idVehiculo.setBounds(50, 150, 200, 30);
@@ -255,23 +259,26 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       }
       //Guardar Registro de Mantenimientos
       if(e.getSource() ==  btnGuardar){
-         JOptionPane.showMessageDialog(null, "Se guardarán los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardarÃ¡n los datos");	
          costo.setText(null);
          fecha.setText(null);
+         reporte.setText(null);
          idVehiculo.setSelectedIndex(0);
          mantenimiento.setSelectedIndex(0);
          idProveedor.setSelectedIndex(0);         
       }
       //Guardar Modificaciones de Mantenimientos
       if(e.getSource() ==  btnGuardarM){
-         JOptionPane.showMessageDialog(null, "Se guardarán los datos");	
+         JOptionPane.showMessageDialog(null, "Se guardarÃ¡n los datos");	
          costo.setText(null);
          fecha.setText(null);
          busqueda.setText(null);
+         reporte.setText(null);
          costo.setEnabled(false);
          fecha.setEnabled(false);
          idProveedor.setEnabled(false);
          idVehiculo.setEnabled(false);
+         reporte.setEnabled(false);
          mantenimiento.setEnabled(false);
          btnGuardarM.setEnabled(false);
          idProveedor.setSelectedIndex(0);
@@ -303,6 +310,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
          mantenimiento.setEnabled(true);
          costo.setEnabled(true);
          fecha.setEnabled(true);
+         reporte.setEnabled(true);
          btnGuardarM.setEnabled(true);
          idProveedor.setSelectedIndex(1);//Colocar la casilla del id de su proveedor
       }
