@@ -8,11 +8,11 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
    public JTextField busqueda,fecha,costo, idMantenimiento;
    public JTextArea reporte;
    public JButton btnIdM, btnConsultaG, btnVolver, btnBuscar, btnBuscarE, btnGuardar,btnGuardarM, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuIdP[]={"","P1"},menuIdV[]={"","ihdcihd"},menuMantenimiento[]={"","Mecanico","Electrico","Limpieza"};
+   public String menuIdP[]={"","P1"},menuIdV[]={"","ihdcihd"},menuMantenimiento[] = {"","Mecanico","Electrico","Limpieza"};
    public JComboBox idProveedor,idVehiculo,mantenimiento;
    public JLabel texto;
    public OpcMantenimiento(int opc){
-      opcion=opc;
+      opcion = opc;
       setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
@@ -48,70 +48,70 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(reporte);
       OMPanel.add(reporteT);
       
-      JLabel idProveedorT= new JLabel("Proveedor");
+      JLabel idProveedorT = new JLabel("Proveedor");
       idProveedorT.setBounds(50,25,150,30);
       idProveedor = new JComboBox(menuIdP);
       idProveedor.setBounds(50, 50, 200,30);
       OMPanel.add(idProveedorT);
       OMPanel.add(idProveedor);
       
-      JLabel idVehiculoT= new JLabel("Vehiculo");
+      JLabel idVehiculoT = new JLabel("Vehiculo");
       idVehiculoT.setBounds(50, 75, 150, 30);
       idVehiculo = new JComboBox(menuIdV);
       idVehiculo.setBounds(50, 100, 200, 30);
       OMPanel.add(idVehiculo);
       OMPanel.add(idVehiculoT);
       
-      JLabel mantenimientoT= new JLabel("Mantenimiento o Reparacion");
+      JLabel mantenimientoT = new JLabel("Mantenimiento o Reparacion");
       mantenimientoT.setBounds(50, 125, 200, 30);
       mantenimiento = new JComboBox(menuMantenimiento);
       mantenimiento.setBounds(50, 150, 200, 30);
       OMPanel.add(mantenimientoT);
       OMPanel.add(mantenimiento);
       
-      JLabel costoT= new JLabel("Costo por mano de obra");
+      JLabel costoT = new JLabel("Costo por mano de obra");
       costoT.setBounds(50, 175, 200, 30);
       costo = new JTextField();
       costo.setBounds(50, 200, 200, 30);
       OMPanel.add(costo);
       OMPanel.add(costoT);
             
-      JLabel fechaT= new JLabel("Fecha");
+      JLabel fechaT = new JLabel("Fecha");
       fechaT.setBounds(50, 225, 150, 30);
       fecha = new JTextField();
       fecha.setBounds(50, 250, 200, 30);
       OMPanel.add(fechaT);
       OMPanel.add(fecha);
       
-      btnGuardar= new JButton("Guardar");
+      btnGuardar = new JButton("Guardar");
       btnGuardar.setBounds(50, 360, 80, 30);
       btnGuardar.addActionListener(this);
       OMPanel.add(btnGuardar);
       
-      btnVolver= new JButton("Volver");
+      btnVolver = new JButton("Volver");
       btnVolver.setBounds(150, 360, 80, 30);
       btnVolver.addActionListener(this);
       OMPanel.add(btnVolver);
    }
    public void screenConsultar(){
    
-      texto= new JLabel();
+      texto = new JLabel();
       setTitle("Consultar Mantenimientos");
       texto.setText("Opciones de busqueda:");
       texto.setBounds(80, 5, 300, 30);
       OMPanel.add(texto);
       
-      btnIdM= new JButton("Busqueda por Id");
+      btnIdM = new JButton("Busqueda por Id");
       btnIdM.setBounds(130, 45, 200, 30);
       btnIdM.addActionListener(this);
       OMPanel.add(btnIdM);
             
-      btnConsultaG= new JButton("Consulta General");
+      btnConsultaG = new JButton("Consulta General");
       btnConsultaG.setBounds(340, 45, 200, 30);
       btnConsultaG.addActionListener(this);
       OMPanel.add(btnConsultaG);
       
-      btnBuscar= new JButton("Buscar");
+      btnBuscar = new JButton("Buscar");
       btnBuscar.setBounds(500, 100, 100, 30);
       btnBuscar.setVisible(false);
       btnBuscar.addActionListener(this);
@@ -122,7 +122,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       busqueda.setVisible(false);
       OMPanel.add(busqueda);
       
-      btnVolver= new JButton("Volver");
+      btnVolver = new JButton("Volver");
       btnVolver.setBounds(50, 360, 100, 30);
       btnVolver.addActionListener(this);
       OMPanel.add(btnVolver);
@@ -130,7 +130,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
    public void screenModificar(){
       setTitle("Modificar Mantenimiento");
       
-      texto= new JLabel();
+      texto = new JLabel();
       texto.setText("Ingrese Id de Mantenimiento:");
       texto.setBounds(90, 15, 300, 30);
       OMPanel.add(texto);
@@ -144,12 +144,12 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       busqueda.setBounds(90, 40, 400, 30);
       OMPanel.add(busqueda);
             
-      btnVolver= new JButton("Volver");
+      btnVolver = new JButton("Volver");
       btnVolver.setBounds(150, 360, 80, 30);
       btnVolver.addActionListener(this);
       OMPanel.add(btnVolver);
       
-      JLabel idProveedorT= new JLabel("Proveedor");
+      JLabel idProveedorT = new JLabel("Proveedor");
       idProveedorT.setBounds(50,75,150,30);
       idProveedor = new JComboBox(menuIdP);
       idProveedor.setBounds(50, 100, 200,30);
@@ -165,7 +165,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(reporte);
       OMPanel.add(reporteT);
       
-      JLabel idVehiculoT= new JLabel("Vehiculo");
+      JLabel idVehiculoT = new JLabel("Vehiculo");
       idVehiculoT.setBounds(50, 125, 150, 30);
       idVehiculo = new JComboBox(menuIdV);
       idVehiculo.setBounds(50, 150, 200, 30);
@@ -173,7 +173,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(idVehiculo);
       OMPanel.add(idVehiculoT);
       
-      JLabel mantenimientoT= new JLabel("Mantenimiento o Reparacion");
+      JLabel mantenimientoT = new JLabel("Mantenimiento o Reparacion");
       mantenimientoT.setBounds(50, 175, 200, 30);
       mantenimiento = new JComboBox(menuMantenimiento);
       mantenimiento.setBounds(50, 200, 200, 30);
@@ -181,7 +181,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(mantenimientoT);
       OMPanel.add(mantenimiento);
       
-      JLabel costoT= new JLabel("Costo por mano de obra");
+      JLabel costoT = new JLabel("Costo por mano de obra");
       costoT.setBounds(50, 225, 200, 30);
       costo = new JTextField();
       costo.setBounds(50, 250, 200, 30);
@@ -189,7 +189,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(costo);
       OMPanel.add(costoT);
             
-      JLabel fechaT= new JLabel("Fecha");
+      JLabel fechaT = new JLabel("Fecha");
       fechaT.setBounds(50, 275, 150, 30);
       fecha = new JTextField();
       fecha.setBounds(50, 300, 200, 30);
@@ -197,7 +197,7 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       OMPanel.add(fechaT);
       OMPanel.add(fecha);
       
-      btnGuardarM= new JButton("Guardar");
+      btnGuardarM = new JButton("Guardar");
       btnGuardarM.setBounds(50, 360, 80, 30);
       btnGuardarM.addActionListener(this);
       btnGuardarM.setEnabled(false);
@@ -206,12 +206,12 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
    public void screenEliminar(){
       setTitle("Eliminar Mantenimiento");
       
-      texto= new JLabel();
+      texto = new JLabel();
       texto.setText("Ingrese Id de Mantenimiento:");
       texto.setBounds(90, 35, 300, 30);
       OMPanel.add(texto);
       
-      btnBuscarE= new JButton("Buscar");
+      btnBuscarE = new JButton("Buscar");
       btnBuscarE.setBounds(500, 60, 100, 30);
       btnBuscarE.addActionListener(this);
       OMPanel.add(btnBuscarE);
@@ -220,19 +220,19 @@ public class OpcMantenimiento extends JFrame implements ActionListener{
       busqueda.setBounds(90, 60, 400, 30);
       OMPanel.add(busqueda);
       
-      btnEliminar= new JButton("Eliminar");
+      btnEliminar = new JButton("Eliminar");
       btnEliminar.setBounds(280, 360, 100, 30);
       btnEliminar.addActionListener(this);
       btnEliminar.setVisible(false);
       OMPanel.add(btnEliminar);
       
-      btnCancelar= new JButton("Cancelar");
+      btnCancelar = new JButton("Cancelar");
       btnCancelar.setBounds(390, 360, 100, 30);
       btnCancelar.addActionListener(this);
       btnCancelar.setVisible(false);
       OMPanel.add(btnCancelar);
       
-      btnVolver= new JButton("Volver");
+      btnVolver = new JButton("Volver");
       btnVolver.setBounds(50, 360, 100, 30);
       btnVolver.addActionListener(this);
       OMPanel.add(btnVolver);
