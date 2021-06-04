@@ -7,11 +7,11 @@ public class OpcGasto extends JFrame implements ActionListener{
    public JPanel OVPanel;
    public JTextField idGasto, fecha, gastoTotal, busqueda;
    public JButton btnIdG, btnConsultaG, btnAceptar, btnBuscar, btnBuscarE, btnGuardar,btnGuardarM, btnEliminar, btnCancelar, btnBusquedaM;
-   public String menuFacturado[] = {"","Si", "No"}, menuProovedor[] = {"","Provedor 1", "Provedor 2"}, menuTipoGasto[]={"","Mantenimiento", "Reparacion"};
+   public String menuFacturado[] = {"","Si", "No"}, menuProovedor[] = {"","Provedor 1", "Provedor 2"}, menuTipoGasto[] = {"","Mantenimiento", "Reparacion"};
    public JComboBox proovedor, facturado, tipoGasto;
    public JLabel texto;
    public OpcGasto(int opc){
-      opcion=opc;
+      opcion = opc;
       setResizable(false);
       this.setSize(720, 480);
       setLocationRelativeTo(null);
@@ -46,14 +46,14 @@ public class OpcGasto extends JFrame implements ActionListener{
       imagenGasto.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
       OVPanel.add(imagenGasto);
             
-      JLabel fechaT= new JLabel("Fecha");
+      JLabel fechaT = new JLabel("Fecha");
       fechaT.setBounds(50, 35, 200, 30);
       fecha = new JTextField();
       fecha.setBounds(50, 60, 200, 30);
       OVPanel.add(fecha);
       OVPanel.add(fechaT);
       
-      JLabel gastoTotalT= new JLabel("Gasto total");
+      JLabel gastoTotalT = new JLabel("Gasto total");
       gastoTotalT.setBounds(50, 95, 200, 30);
       gastoTotal = new JTextField();
       gastoTotal.setBounds(50, 120, 200, 30);
@@ -67,49 +67,49 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(proovedor);
       OVPanel.add(proovedorT);
       
-      JLabel facturadoT= new JLabel("Facturado");
+      JLabel facturadoT = new JLabel("Facturado");
       facturadoT.setBounds(50, 215, 200, 30);
       facturado = new JComboBox(menuFacturado);
       facturado.setBounds(50, 240, 200, 30);
       OVPanel.add(facturado);
       OVPanel.add(facturadoT);
       
-      JLabel tipoGastoT= new JLabel("Tipo gasto");
+      JLabel tipoGastoT = new JLabel("Tipo gasto");
       tipoGastoT.setBounds(50, 275, 200, 30);
       tipoGasto = new JComboBox(menuTipoGasto);
       tipoGasto.setBounds(50, 300, 200, 30);
       OVPanel.add(tipoGastoT);
       OVPanel.add(tipoGasto);
       
-      btnGuardar= new JButton("Guardar");
+      btnGuardar = new JButton("Guardar");
       btnGuardar.setBounds(50, 360, 80, 30);
       btnGuardar.addActionListener(this);
       OVPanel.add(btnGuardar);
       
-      btnAceptar= new JButton("Volver");
+      btnAceptar = new JButton("Volver");
       btnAceptar.setBounds(150, 360, 80, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
    }
    public void screenConsultar(){
    
-      texto= new JLabel();
+      texto = new JLabel();
       setTitle("Consultar Gasto");
       texto.setText("Opciones de busqueda:");
       texto.setBounds(80, 5, 300, 30);
       OVPanel.add(texto);
       
-      btnIdG= new JButton("Busqueda por Id");
+      btnIdG = new JButton("Busqueda por Id");
       btnIdG.setBounds(130, 45, 200, 30);
       btnIdG.addActionListener(this);
       OVPanel.add(btnIdG);
             
-      btnConsultaG= new JButton("Consulta General");
+      btnConsultaG = new JButton("Consulta General");
       btnConsultaG.setBounds(340, 45, 200, 30);
       btnConsultaG.addActionListener(this);
       OVPanel.add(btnConsultaG);
       
-      btnBuscar= new JButton("Buscar");
+      btnBuscar = new JButton("Buscar");
       btnBuscar.setBounds(500, 100, 100, 30);
       btnBuscar.setVisible(false);
       btnBuscar.addActionListener(this);
@@ -120,7 +120,7 @@ public class OpcGasto extends JFrame implements ActionListener{
       busqueda.setVisible(false);
       OVPanel.add(busqueda);
       
-      btnAceptar= new JButton("Volver");
+      btnAceptar = new JButton("Volver");
       btnAceptar.setBounds(50, 360, 100, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
@@ -128,12 +128,12 @@ public class OpcGasto extends JFrame implements ActionListener{
    public void screenModificar(){
       setTitle("Modificar Gasto");
       
-      texto= new JLabel();
+      texto = new JLabel();
       texto.setText("Ingrese Id de Gasto:");
       texto.setBounds(90, 15, 300, 30);
       OVPanel.add(texto);
       
-      btnBusquedaM= new JButton("Buscar");
+      btnBusquedaM = new JButton("Buscar");
       btnBusquedaM.setBounds(500, 40, 100, 30);
       btnBusquedaM.addActionListener(this);
       OVPanel.add(btnBusquedaM);
@@ -148,12 +148,12 @@ public class OpcGasto extends JFrame implements ActionListener{
       imagenGasto.setIcon(new ImageIcon(imagenF.getImage().getScaledInstance(340, 340, Image.SCALE_SMOOTH)));
       OVPanel.add(imagenGasto);
       
-      btnAceptar= new JButton("Volver");
+      btnAceptar = new JButton("Volver");
       btnAceptar.setBounds(150, 360, 80, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
          
-      JLabel fechaT= new JLabel("Fecha");
+      JLabel fechaT = new JLabel("Fecha");
       fechaT.setBounds(50, 75, 150, 30);
       fecha = new JTextField();
       fecha.setBounds(50, 100, 200, 30);
@@ -161,7 +161,7 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(fecha);
       OVPanel.add(fechaT);
          
-      JLabel gastoTotalT= new JLabel("Gasto total");
+      JLabel gastoTotalT = new JLabel("Gasto total");
       gastoTotalT.setBounds(50, 125, 150, 30);
       gastoTotal = new JTextField();
       gastoTotal.setBounds(50, 150, 200, 30);
@@ -169,7 +169,7 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(gastoTotal);
       OVPanel.add(gastoTotalT);
       
-      JLabel proovedorT= new JLabel("Proovedor");
+      JLabel proovedorT = new JLabel("Proovedor");
       proovedorT.setBounds(50, 175, 150, 30);
       proovedor = new JComboBox(menuProovedor);
       proovedor.setBounds(50, 200, 200, 30);
@@ -177,7 +177,7 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(proovedor);
       OVPanel.add(proovedorT);
          
-      JLabel facturadoT= new JLabel("Facturado");
+      JLabel facturadoT = new JLabel("Facturado");
       facturadoT.setBounds(50, 225, 150, 30);
       facturado = new JComboBox(menuFacturado);
       facturado.setBounds(50, 250, 200, 30);
@@ -185,7 +185,7 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(facturado);
       OVPanel.add(facturadoT);
          
-      JLabel tipoGastoT= new JLabel("Tipo de gasto");
+      JLabel tipoGastoT = new JLabel("Tipo de gasto");
       tipoGastoT.setBounds(50, 275, 150, 30);
       tipoGasto = new JComboBox(menuTipoGasto);
       tipoGasto.setBounds(50, 300,200, 30);
@@ -193,7 +193,7 @@ public class OpcGasto extends JFrame implements ActionListener{
       OVPanel.add(tipoGastoT);
       OVPanel.add(tipoGasto);
       
-      btnGuardarM= new JButton("Guardar");
+      btnGuardarM = new JButton("Guardar");
       btnGuardarM.setBounds(50, 360, 80, 30);
       btnGuardarM.addActionListener(this);
       btnGuardarM.setEnabled(false);
@@ -202,12 +202,12 @@ public class OpcGasto extends JFrame implements ActionListener{
    public void screenEliminar(){
       setTitle("Eliminar Gasto");
       
-      texto= new JLabel();
+      texto = new JLabel();
       texto.setText("Ingrese Id de Gasto:");
       texto.setBounds(90, 35, 300, 30);
       OVPanel.add(texto);
       
-      btnBuscarE= new JButton("Buscar");
+      btnBuscarE = new JButton("Buscar");
       btnBuscarE.setBounds(500, 60, 100, 30);
       btnBuscarE.addActionListener(this);
       OVPanel.add(btnBuscarE);
@@ -216,19 +216,19 @@ public class OpcGasto extends JFrame implements ActionListener{
       busqueda.setBounds(90, 60, 400, 30);
       OVPanel.add(busqueda);
       
-      btnEliminar= new JButton("Eliminar");
+      btnEliminar = new JButton("Eliminar");
       btnEliminar.setBounds(280, 360, 100, 30);
       btnEliminar.addActionListener(this);
       btnEliminar.setVisible(false);
       OVPanel.add(btnEliminar);
       
-      btnCancelar= new JButton("Cancelar");
+      btnCancelar = new JButton("Cancelar");
       btnCancelar.setBounds(390, 360, 100, 30);
       btnCancelar.addActionListener(this);
       btnCancelar.setVisible(false);
       OVPanel.add(btnCancelar);
       
-      btnAceptar= new JButton("Volver");
+      btnAceptar = new JButton("Volver");
       btnAceptar.setBounds(50, 360, 100, 30);
       btnAceptar.addActionListener(this);
       OVPanel.add(btnAceptar);
