@@ -15,20 +15,20 @@ public class GestionarVehiculos extends JFrame implements ActionListener{
       screen();
    }
    public void actionPerformed(ActionEvent event){
-      int n=0;
+      int n = 0;
       if(event.getSource() != volver){
       
          if(event.getSource() == registrarVehiculo){
-            n=1;
+            n = 1;
          }
          if(event.getSource() == consultarVehiculo){
-            n=2;
+            n = 2;
          }
          if(event.getSource() == modificarVehiculo){
-            n=3;
+            n = 3;
          }
          if(event.getSource() == eliminarVehiculo){
-            n=4;
+            n = 4;
          }
          OpcVehiculo opc = new OpcVehiculo(n);
          opc.setVisible(true);
