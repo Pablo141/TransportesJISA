@@ -40,7 +40,7 @@ public class Login extends JFrame implements ActionListener{
                else{
                   JOptionPane.showMessageDialog(null, "Las credenciales son incorrectas");
                }
-            }//Comprobacion de que el dato es incorrecto
+            }//Comprobacion de que dato es incorrecto
         }
     }//Eventos
     
