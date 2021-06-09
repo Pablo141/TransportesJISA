@@ -7,7 +7,7 @@ public class Inicio extends JFrame implements ActionListener{
    GestionarProveedores GP = new GestionarProveedores();
    GestionarGastos GG = new GestionarGastos();
    GestionarAgentes GA = new GestionarAgentes();
-   GestionarMantenimiento GM= new GestionarMantenimiento();
+   GestionarMantenimiento GM = new GestionarMantenimiento();
    public JPanel inicioPanel;
    public JButton gVehiculos, gMantenimientos, gGastos, gProveedores, gAgentes,gSalir;
    public JLabel elijaOpc, imagen;
