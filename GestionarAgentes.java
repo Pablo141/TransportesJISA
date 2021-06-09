@@ -15,20 +15,20 @@ public class GestionarAgentes extends JFrame implements ActionListener{
       screen();
    }
    public void actionPerformed(ActionEvent event){
-      int n=0;
+      int n = 0;
       if(event.getSource() != volver){
       
          if(event.getSource() == registrarAgente){
-            n=1;
+            n = 1;
          }
          if(event.getSource() == consultarAgente){
-            n=2;
+            n = 2;
          }
          if(event.getSource() == modificarAgente){
-            n=3;
+            n = 3;
          }
          if(event.getSource() == eliminarAgente){
-            n=4;
+            n = 4;
          }
          OpcAgentes opc = new OpcAgentes(n);
          opc.setVisible(true);
