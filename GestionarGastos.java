@@ -15,20 +15,20 @@ public class GestionarGastos extends JFrame implements ActionListener{
       screen();
    }
    public void actionPerformed(ActionEvent event){
-      int n=0;
+      int n = 0;
       if(event.getSource() != volver){
       
          if(event.getSource() == registrarGasto){
-            n=1;
+            n = 1;
          }
          if(event.getSource() == consultarGasto){
-            n=2;
+            n = 2;
          }
          if(event.getSource() == modificarGasto){
-            n=3;
+            n = 3;
          }
          if(event.getSource() == eliminarGasto){
-            n=4;
+            n = 4;
          }
          OpcGasto opc = new OpcGasto(n);
          opc.setVisible(true);
