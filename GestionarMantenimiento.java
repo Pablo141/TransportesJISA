@@ -15,20 +15,20 @@ public class GestionarMantenimiento extends JFrame implements ActionListener{
       screen();
    }
    public void actionPerformed(ActionEvent event){
-      int n=0;
+      int n = 0;
       if(event.getSource() != volver){
       
          if(event.getSource() == registrarMantenimiento){
-            n=1;
+            n = 1;
          }
          if(event.getSource() == consultarMantenimiento){
-            n=2;
+            n = 2;
          }
          if(event.getSource() == modificarMantenimiento){
-            n=3;
+            n = 3;
          }
          if(event.getSource() == eliminarMantenimiento){
-            n=4;
+            n = 4;
          }
          OpcMantenimiento opc = new OpcMantenimiento(n);
          opc.setVisible(true);
